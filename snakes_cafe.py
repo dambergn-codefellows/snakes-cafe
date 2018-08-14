@@ -2,6 +2,7 @@ from textwrap import dedent
 
 
 WIDTH = 40
+ORDER_COMPLETE = False
 BANK = [
   {
     'item': 'wings',
@@ -178,6 +179,23 @@ def Message():
   '''))
 
 
+def ask_question(question):
+  return input(question)
+
+
+def check_input(user_in, item):
+  if user_in == 'quit':
+    exit()
+    return
+
+
+def exit():
+  print(dedent(f'''
+  Thank you for using snakes cafe!
+  '''))
+  #sys.exit()
+
+
 def run():
   greeting()
   Appetizers()
@@ -185,6 +203,19 @@ def run():
   Desserts()
   Drinks()
   Message()
+  while ORDER_COMPLETE == False:
+    item = input()
+    if item == 'quit':
+      exit()
+      return
+    if item == 'Appetizers':
+      Appetizers()
+    elif item == 'Entrees':
+      Entrees()
+    elif item == 'Desserts':
+      Desserts()
+    elif item == 'Drinks':
+      Drinks()
   # for item in BANK:
   #   user_input = ask_question(item['question'])
   #   status = check_input(user_input, item)
