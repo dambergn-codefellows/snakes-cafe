@@ -14,7 +14,14 @@ snakes-cafe
 - The program should prompt the user for an order
 - When a user enters an item, the program should print an acknowledgment of their input
 - The program should tell the user how to exit
+---NEW features---
+- Your menu should get a “Sides” category
+- Every menu category should have at least 6 items
+- Your menu items should all get prices. Use whatever currency symbol you want, but make sure that the user knows what the - - prices and currencies are.
+- Whenever the user adds an item to their order, they’re notified of the total cost of their order up to that point.
+- If the user types order, their entire order is printed to the console. For example:
 
+```
 **************************************
 **    Welcome to the Snakes Cafe!   **
 **    Please see our menu below.    **
@@ -50,9 +57,14 @@ Blood of the Innocent
 ***********************************
 ** What would you like to order? **
 ***********************************
-
+```
 
 ## Change Log
+
+### 2018-08-14
+- 
+
+### 2018-08-13
 - Added menue items to select from to print to screen.
 - Added ability to re print individual category and exit.
 - Orders append to dictonary and print added item and quantity.
