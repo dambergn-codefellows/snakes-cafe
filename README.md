@@ -47,3 +47,5 @@ Blood of the Innocent
 
 ## Change Log
 - Added menue items to select from to print to screen.
+- Added ability to re print individual category and exit.
+- Orders append to dictonary and print added item and quantity.

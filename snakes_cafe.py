@@ -5,79 +5,79 @@ WIDTH = 40
 ORDER_COMPLETE = False
 BANK = [
   {
-    'item': 'wings',
+    'item': 'Wings',
     'ammount': 6,
     'price': 3,
     'order': 0,
   },
   {
-    'item': 'cookies',
+    'item': 'Cookies',
     'ammount': 3,
     'price': 1.5,
     'order': 0,
   },
   {
-    'item': 'spring rolls',
+    'item': 'Spring Rolls',
     'ammount': 4,
     'price': 2,
     'order': 0,
   },
   {
-    'item': 'salmon',
+    'item': 'Salmon',
     'ammount': 1,
     'price': 15,
     'order': 0,
   },
   {
-    'item': 'steak',
+    'item': 'Steak',
     'ammount': 1,
     'price': 18,
     'order': 0,
   },
   {
-    'item': 'meat tornado',
+    'item': 'Meat Tornado',
     'ammount': 1,
     'price': 13,
     'order': 0,
   },
   {
-    'item': 'a little garden',
+    'item': 'A Little Garden',
     'ammount': 1,
     'price': 3.5,
     'order': 0,
   },
   {
-    'item': 'ice cream',
+    'item': 'Ice Cream',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
-    'item': 'cake',
+    'item': 'Cake',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
-    'item': 'pie',
+    'item': 'Pie',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
-    'item': 'coffee',
+    'item': 'Coffee',
     'ammount': 1,
     'price': .75,
     'order': 0,
   },
   {
-    'item': 'tea',
+    'item': 'Tea',
     'ammount': 1,
     'price': .75,
     'order': 0,
   },
   {
-    'item': 'blood of the innocent',
+    'item': 'Blood of the Innocent',
     'ammount': 1,
     'price': 100000,
     'order': 0,
@@ -195,6 +195,9 @@ def exit():
   '''))
   #sys.exit()
 
+def complete():
+
+
 
 def run():
   greeting()
@@ -204,18 +207,22 @@ def run():
   Drinks()
   Message()
   while ORDER_COMPLETE == False:
-    item = input()
-    if item == 'quit':
+    order = input()
+    if order == 'quit':
       exit()
       return
-    if item == 'Appetizers':
+    elif order == 'Appetizers':
       Appetizers()
-    elif item == 'Entrees':
+    elif order == 'Entrees':
       Entrees()
-    elif item == 'Desserts':
+    elif order == 'Desserts':
       Desserts()
-    elif item == 'Drinks':
+    elif order == 'Drinks':
       Drinks()
+    for menue in BANK:
+      if order == menue['item']:
+        menue['order'] = menue['order'] + 1
+        print(menue['order'], 'order(s) of', order, 'have been added to your meal.')
   # for item in BANK:
   #   user_input = ask_question(item['question'])
   #   status = check_input(user_input, item)
