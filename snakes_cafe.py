@@ -171,7 +171,6 @@ def Drinks():
 
 def Message():
   ln_message = 'What would you like to order?'
-
   print(dedent(f'''
     {'*' * WIDTH}
     {'**' + (' ' * (((WIDTH - 2) - len(ln_message)) // 2)) + ln_message + (' ' * (((WIDTH - 4) - len(ln_message)) // 2)) + '**'}
@@ -179,14 +178,38 @@ def Message():
   '''))
 
 
-def ask_question(question):
-  return input(question)
+def Manual():
+  ln_zero = 'Manual'
+  ln_one = 'Type "Category" to bring up a list of category options.'
+  ln_two = 'Type the name of the category to see the menue items in that category.'
+  ln_three = 'Type the name of the menue item you would like to add to the order.'
+  ln_four = 'At any time you can type "quit" or "exit" to stop the application.'
+
+  print(dedent(f'''
+    {ln_zero}
+    {'-' * len(ln_zero)}
+    {ln_one}
+    {ln_two}
+    {ln_three}
+    {ln_four}
+  '''))
 
 
-def check_input(user_in, item):
-  if user_in == 'quit':
-    exit()
-    return
+def Category():
+  ln_zero = 'Categories'
+  ln_one = 'Appetizers'
+  ln_two = 'Entrees'
+  ln_three = 'Desserts'
+  ln_four = 'Drinks'
+
+  print(dedent(f'''
+    {ln_zero}
+    {'-' * len(ln_zero)}
+    {ln_one}
+    {ln_two}
+    {ln_three}
+    {ln_four}
+  '''))
 
 
 def exit():
@@ -195,8 +218,7 @@ def exit():
   '''))
   #sys.exit()
 
-def complete():
-
+#def complete():
 
 
 def run():
@@ -208,9 +230,13 @@ def run():
   Message()
   while ORDER_COMPLETE == False:
     order = input()
-    if order == 'quit':
+    if order == 'quit' or order == 'exit':
       exit()
       return
+    elif order == 'man' or order == 'Man' or order == 'help':
+      Manual()
+    elif order == 'Category':
+      Category()
     elif order == 'Appetizers':
       Appetizers()
     elif order == 'Entrees':
@@ -223,10 +249,8 @@ def run():
       if order == menue['item']:
         menue['order'] = menue['order'] + 1
         print(menue['order'], 'order(s) of', order, 'have been added to your meal.')
-  # for item in BANK:
-  #   user_input = ask_question(item['question'])
-  #   status = check_input(user_input, item)
-  #   feedback(status)
+      else:
+        next
 
 
 if __name__ == '__main__':
