@@ -4,24 +4,24 @@ from textwrap import dedent
 WIDTH = 40
 ORDER_COMPLETE = False
 BANK = [
-  {
-    'item': 'Wings',
-    'ammount': 6,
-    'price': 3,
-    'order': 0,
-  },
-  {
-    'item': 'Cookies',
-    'ammount': 3,
-    'price': 1.5,
-    'order': 0,
-  },
-  {
-    'item': 'Spring Rolls',
-    'ammount': 4,
-    'price': 2,
-    'order': 0,
-  },
+    {
+      'item': 'Wings',
+      'ammount': 6,
+      'price': 3,
+      'order': 0,
+    },
+    {
+      'item': 'Cookies',
+      'ammount': 3,
+      'price': 1.5,
+      'order': 0,
+    },
+    {
+      'item': 'Spring Rolls',
+      'ammount': 4,
+      'price': 2,
+      'order': 0,
+    },
   {
     'item': 'Salmon',
     'ammount': 1,
