@@ -4,82 +4,95 @@ from textwrap import dedent
 WIDTH = 40
 ORDER_COMPLETE = False
 BANK = [
-    {
-      'item': 'Wings',
-      'ammount': 6,
-      'price': 3,
-      'order': 0,
-    },
-    {
-      'item': 'Cookies',
-      'ammount': 3,
-      'price': 1.5,
-      'order': 0,
-    },
-    {
-      'item': 'Spring Rolls',
-      'ammount': 4,
-      'price': 2,
-      'order': 0,
-    },
   {
+    'category': 'appetizers',
+    'item': 'Wings',
+    'ammount': 6,
+    'price': 3,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'Cookies',
+    'ammount': 3,
+    'price': 1.5,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'Spring Rolls',
+    'ammount': 4,
+    'price': 2,
+    'order': 0,
+  },
+  {
+    'category': 'entrees',
     'item': 'Salmon',
     'ammount': 1,
     'price': 15,
     'order': 0,
   },
   {
+    'category': 'entrees',
     'item': 'Steak',
     'ammount': 1,
     'price': 18,
     'order': 0,
   },
   {
+    'category': 'entrees',
     'item': 'Meat Tornado',
     'ammount': 1,
     'price': 13,
     'order': 0,
   },
   {
+    'category': 'entrees',
     'item': 'A Little Garden',
     'ammount': 1,
     'price': 3.5,
     'order': 0,
   },
   {
+    'category': 'deserts',
     'item': 'Ice Cream',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
+    'category': 'deserts',
     'item': 'Cake',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
+    'category': 'deserts',
     'item': 'Pie',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
+    'category': 'drinks',
     'item': 'Coffee',
     'ammount': 1,
     'price': .75,
     'order': 0,
   },
   {
+    'category': 'drinks',
     'item': 'Tea',
     'ammount': 1,
     'price': .75,
     'order': 0,
   },
   {
+    'category': 'drinks',
     'item': 'Blood of the Innocent',
     'ammount': 1,
-    'price': 100000,
+    'price': 6.66,
     'order': 0,
   },
 ]
@@ -118,6 +131,17 @@ def Appetizers():
     {ln_three}
     {''}
   '''))
+
+
+def List_Category(category):
+  print(dedent(f'''
+    {category}
+    {'-' * len(category)}'''))
+  for menue in BANK:
+    if category == menue['category']:
+      print(dedent(f'''{menue['item']}'''))
+
+  
 
 
 def Entrees():
@@ -229,22 +253,27 @@ def run():
   Drinks()
   Message()
   while ORDER_COMPLETE == False:
-    order = input()
+    order = input().lower()
     if order == 'quit' or order == 'exit':
       exit()
       return
     elif order == 'man' or order == 'Man' or order == 'help':
       Manual()
-    elif order == 'Category':
-      Category()
-    elif order == 'Appetizers':
-      Appetizers()
-    elif order == 'Entrees':
-      Entrees()
-    elif order == 'Desserts':
-      Desserts()
-    elif order == 'Drinks':
-      Drinks()
+    for menue in BANK:
+      if order == menue['category']:
+        List_Category(order)
+        print('')
+        break
+    # elif order == 'Category':
+    #   Category()
+    # elif order == 'Appetizers':
+    #   Appetizers()
+    # elif order == 'Entrees':
+    #   Entrees()
+    # elif order == 'Desserts':
+    #   Desserts()
+    # elif order == 'Drinks':
+    #   Drinks()
     for menue in BANK:
       if order == menue['item']:
         menue['order'] = menue['order'] + 1
