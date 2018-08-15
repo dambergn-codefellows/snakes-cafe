@@ -3,9 +3,108 @@ from textwrap import dedent
 
 WIDTH = 40
 ORDER_COMPLETE = False
+TAX_RATE = 0
 TOTAL = 0
-CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'deserts']
+CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
 BANK = [
+  {
+    'category': 'desserts',
+    'item': 'brownie',
+    'ammount': 1,
+    'price': 1.95,
+    'order': 0,
+  },
+  {
+    'category': 'desserts',
+    'item': 'pudding',
+    'ammount': 1,
+    'price': 2.5,
+    'order': 0,
+  },
+  {
+    'category': 'desserts',
+    'item': 'cream and fruit',
+    'ammount': 1,
+    'price': 5.5,
+    'order': 0,
+  },
+  {
+    'category': 'drinks',
+    'item': 'pop',
+    'ammount': 1,
+    'price': 2.5,
+    'order': 0,
+  },
+  {
+    'category': 'drinks',
+    'item': 'lemonade',
+    'ammount': 1,
+    'price': 1.5,
+    'order': 0,
+  },
+  {
+    'category': 'drinks',
+    'item': 'milk shake',
+    'ammount': 1,
+    'price': 5.59,
+    'order': 0,
+  },
+  {
+    'category': 'sides',
+    'item': 'french fries',
+    'ammount': 1,
+    'price': 3.5,
+    'order': 0,
+  },
+  {
+    'category': 'sides',
+    'item': 'asparagus',
+    'ammount': 1,
+    'price': 3.75,
+    'order': 0,
+  },
+  {
+    'category': 'sides',
+    'item': 'pig strips',
+    'ammount': 1,
+    'price': 4.25,
+    'order': 0,
+  },
+  {
+    'category': 'entrees',
+    'item': 'creature of unknown origin',
+    'ammount': 1,
+    'price': 25.95,
+    'order': 0,
+  },
+  {
+    'category': 'entrees',
+    'item': 'tortured baby cow',
+    'ammount': 1,
+    'price': 16.25,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'spinach artichoke dip',
+    'ammount': 1,
+    'price': 4.25,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'jalapeno poppers',
+    'ammount': 1,
+    'price': 3.5,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'mozzarella sticks',
+    'ammount': 1,
+    'price': 3.5,
+    'order': 0,
+  },
   {
     'category': 'sides',
     'item': 'corn on the cob',
@@ -77,21 +176,21 @@ BANK = [
     'order': 0,
   },
   {
-    'category': 'deserts',
+    'category': 'desserts',
     'item': 'ice Cream',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
-    'category': 'deserts',
+    'category': 'desserts',
     'item': 'cake',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
-    'category': 'deserts',
+    'category': 'desserts',
     'item': 'pie',
     'ammount': 1,
     'price': 2.5,
