@@ -1,9 +1,9 @@
 from textwrap import dedent
 
 
-WIDTH = 40
+WIDTH = 80
 ORDER_COMPLETE = False
-TAX_RATE = 0
+TAX_RATE = float('.1')
 TOTAL = float('0')
 CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
 BANK = [
@@ -177,7 +177,7 @@ BANK = [
   },
   {
     'category': 'desserts',
-    'item': 'ice Cream',
+    'item': 'ice cream',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
@@ -285,7 +285,34 @@ def exit():
   '''))
   #sys.exit()
 
-#def complete():
+def complete():
+  print(dedent(f'''
+  {'_' * WIDTH}
+  {'The Snakes Cafe'}
+  {"Eatability Counts"}
+  {''}
+  {'Order: UUID-TBD'}
+  {'=' * WIDTH}'''))
+  subtotal = float('0')
+  for menue in BANK:
+    item = menue['item']
+    order = menue['order']
+    price = str("%.2f" % round(float(menue['order']) * float(menue['price']),2))
+    space = (' ' * (WIDTH - (len(item) + len(str(order)) + len(str(price) + '    '))))
+    if menue['order'] > 0:
+      subtotal = float(price) + subtotal
+      print(dedent(f'''{item + ' x' + str(order) + space + ' $' + str(price)}'''))
+  sales_tax = float(subtotal) * .1
+  total_due = float(subtotal) + float(sales_tax)
+  print(dedent(f'''
+  {'*' * WIDTH}
+  {'Subtotal: ' + (' ' * (40 - (len(str(subtotal)) + 12))) + '$' + str("%.2f" % float(subtotal))}
+  {'Sales Tax: ' + (' ' * (40 - (len(str(sales_tax)) + 12))) + '$' + str("%.2f" % float(sales_tax))}
+  {'=' * 40}
+  {'Total Due: ' + (' ' * (40 - (len(str(total_due)) + 12))) + '$' + str("%.2f" % float(total_due))}
+  {'_' * WIDTH}
+  '''))
+
 
 
 def run():
@@ -312,13 +339,14 @@ def run():
     for menue in BANK:
       price = "%.2f" % round(float(menue['price']),2)
       if order == menue['item']:
-        
         menue['order'] = menue['order'] + 1
-        
         print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
         global TOTAL
         TOTAL = float(price) + TOTAL
         print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+      elif order == 'order':
+        complete()
+        break
       else:
         next
 

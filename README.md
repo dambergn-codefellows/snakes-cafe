@@ -18,7 +18,7 @@ snakes-cafe
 - [X]Your menu should get a “Sides” category
 - [X]Every menu category should have at least 6 items
 - [X]Your menu items should all get prices. Use whatever currency symbol you want, but make sure that the user knows what the prices and currencies are.
-- []Whenever the user adds an item to their order, they’re notified of the total cost of their order up to that point.
+- [X]Whenever the user adds an item to their order, they’re notified of the total cost of their order up to that point.
 - []If the user types order, their entire order is printed to the console.
 
 ```
