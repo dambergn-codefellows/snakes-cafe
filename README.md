@@ -17,7 +17,7 @@ snakes-cafe
 ---NEW features---
 - [X]Your menu should get a “Sides” category
 - [X]Every menu category should have at least 6 items
-- []Your menu items should all get prices. Use whatever currency symbol you want, but make sure that the user knows what the prices and currencies are.
+- [X]Your menu items should all get prices. Use whatever currency symbol you want, but make sure that the user knows what the prices and currencies are.
 - []Whenever the user adds an item to their order, they’re notified of the total cost of their order up to that point.
 - []If the user types order, their entire order is printed to the console.
 
@@ -68,6 +68,8 @@ Blood of the Innocent
 - Code refactored to use dictonary and list data as templates.
 - Sides category and 3 side items added.
 - Expanded all categories to 6 items.
+- Menue now prints out prices of items.
+- When added to order price of item is printed as well as a current total.
 
 ### 2018-08-13
 - Added menue items to select from to print to screen.

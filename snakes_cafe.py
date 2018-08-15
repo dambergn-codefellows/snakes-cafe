@@ -4,7 +4,7 @@ from textwrap import dedent
 WIDTH = 40
 ORDER_COMPLETE = False
 TAX_RATE = 0
-TOTAL = 0
+TOTAL = float('0')
 CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
 BANK = [
   {
@@ -310,9 +310,15 @@ def run():
       for key in CATEGORIES:
         print(key)
     for menue in BANK:
+      price = "%.2f" % round(float(menue['price']),2)
       if order == menue['item']:
+        
         menue['order'] = menue['order'] + 1
-        print(menue['order'], 'order(s) of', order, 'have been added to your meal.')
+        
+        print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
+        global TOTAL
+        TOTAL = float(price) + TOTAL
+        print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
       else:
         next
 
