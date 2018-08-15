@@ -3,95 +3,117 @@ from textwrap import dedent
 
 WIDTH = 40
 ORDER_COMPLETE = False
-CATEGORIES = ['appetizers', 'entrees', 'drinks', 'deserts']
+TOTAL = 0
+CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'deserts']
 BANK = [
   {
-    'category': 'appetizers',
-    'item': 'Wings',
+    'category': 'sides',
+    'item': 'corn on the cob',
+    'ammount': 1,
+    'price': 3.25,
+    'order': 0,
+  },
+  {
+    'category': 'sides',
+    'item': 'garlic mashed potatoes',
+    'ammount': 1,
+    'price': 3.25,
+    'order': 0,
+  },
+  {
+    'category': 'sides',
+    'item': 'broccoli',
     'ammount': 6,
     'price': 3,
     'order': 0,
   },
   {
     'category': 'appetizers',
-    'item': 'Cookies',
+    'item': 'wings',
+    'ammount': 6,
+    'price': 3,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'cookies',
     'ammount': 3,
     'price': 1.5,
     'order': 0,
   },
   {
     'category': 'appetizers',
-    'item': 'Spring Rolls',
+    'item': 'spring rolls',
     'ammount': 4,
     'price': 2,
     'order': 0,
   },
   {
     'category': 'entrees',
-    'item': 'Salmon',
+    'item': 'salmon',
     'ammount': 1,
     'price': 15,
     'order': 0,
   },
   {
     'category': 'entrees',
-    'item': 'Steak',
+    'item': 'steak',
     'ammount': 1,
     'price': 18,
     'order': 0,
   },
   {
     'category': 'entrees',
-    'item': 'Meat Tornado',
+    'item': 'meat tornado',
     'ammount': 1,
     'price': 13,
     'order': 0,
   },
   {
     'category': 'entrees',
-    'item': 'A Little Garden',
+    'item': 'a little garden',
     'ammount': 1,
     'price': 3.5,
     'order': 0,
   },
   {
     'category': 'deserts',
-    'item': 'Ice Cream',
+    'item': 'ice Cream',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
     'category': 'deserts',
-    'item': 'Cake',
+    'item': 'cake',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
     'category': 'deserts',
-    'item': 'Pie',
+    'item': 'pie',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
     'category': 'drinks',
-    'item': 'Coffee',
+    'item': 'coffee',
     'ammount': 1,
     'price': .75,
     'order': 0,
   },
   {
     'category': 'drinks',
-    'item': 'Tea',
+    'item': 'tea',
     'ammount': 1,
     'price': .75,
     'order': 0,
   },
   {
     'category': 'drinks',
-    'item': 'Blood of the Innocent',
+    'item': 'blood of the innocent',
     'ammount': 1,
     'price': 6.66,
     'order': 0,
@@ -141,7 +163,8 @@ def Manual():
   ln_one = 'Type "Category" to bring up a list of category options.'
   ln_two = 'Type the name of the category to see the menue items in that category.'
   ln_three = 'Type the name of the menue item you would like to add to the order.'
-  ln_four = 'At any time you can type "quit" or "exit" to stop the application.'
+  ln_five = 'At any time you can type "quit" or "exit" to stop the application.'
+  ln_four = 'type "order" to print current order to screen.'
 
   print(dedent(f'''
     {ln_zero}
@@ -150,6 +173,7 @@ def Manual():
     {ln_two}
     {ln_three}
     {ln_four}
+    {ln_five}
   '''))
 
 
