@@ -17,7 +17,7 @@ snakes-cafe
 ---NEW features---
 - Your menu should get a “Sides” category
 - Every menu category should have at least 6 items
-- Your menu items should all get prices. Use whatever currency symbol you want, but make sure that the user knows what the - - prices and currencies are.
+- Your menu items should all get prices. Use whatever currency symbol you want, but make sure that the user knows what the prices and currencies are.
 - Whenever the user adds an item to their order, they’re notified of the total cost of their order up to that point.
 - If the user types order, their entire order is printed to the console. For example:
 
@@ -72,3 +72,15 @@ Blood of the Innocent
 - Added exit to commands that will exit program.
 - Added Category command to show available categories.
 - Added Manual / help command.
+
+# Software
+- linux
+```
+  sudo apt-get install python3-pip
+  sudo pip install --upgrade pip
+  pip install --user pipenv
+  sudo -H pip install -U pipenv
+  pipenv shell
+  pipenv install pytest
+  pytest -v
+```
