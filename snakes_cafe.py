@@ -1,85 +1,220 @@
 from textwrap import dedent
 
 
-WIDTH = 40
+WIDTH = 80
 ORDER_COMPLETE = False
+TAX_RATE = float('.096')
+TOTAL = float('0')
+CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
 BANK = [
   {
-    'item': 'Wings',
-    'ammount': 6,
-    'price': 3,
+    'category': 'desserts',
+    'item': 'brownie',
+    'ammount': 1,
+    'price': 1.95,
     'order': 0,
   },
   {
-    'item': 'Cookies',
-    'ammount': 3,
+    'category': 'desserts',
+    'item': 'pudding',
+    'ammount': 1,
+    'price': 2.50,
+    'order': 0,
+  },
+  {
+    'category': 'desserts',
+    'item': 'cream and fruit',
+    'ammount': 1,
+    'price': 5.5,
+    'order': 0,
+  },
+  {
+    'category': 'drinks',
+    'item': 'pop',
+    'ammount': 1,
+    'price': 2.5,
+    'order': 0,
+  },
+  {
+    'category': 'drinks',
+    'item': 'lemonade',
+    'ammount': 1,
     'price': 1.5,
     'order': 0,
   },
   {
-    'item': 'Spring Rolls',
-    'ammount': 4,
-    'price': 2,
-    'order': 0,
-  },
-  {
-    'item': 'Salmon',
+    'category': 'drinks',
+    'item': 'milk shake',
     'ammount': 1,
-    'price': 15,
+    'price': 5.59,
     'order': 0,
   },
   {
-    'item': 'Steak',
-    'ammount': 1,
-    'price': 18,
-    'order': 0,
-  },
-  {
-    'item': 'Meat Tornado',
-    'ammount': 1,
-    'price': 13,
-    'order': 0,
-  },
-  {
-    'item': 'A Little Garden',
+    'category': 'sides',
+    'item': 'french fries',
     'ammount': 1,
     'price': 3.5,
     'order': 0,
   },
   {
-    'item': 'Ice Cream',
+    'category': 'sides',
+    'item': 'asparagus',
+    'ammount': 1,
+    'price': 3.75,
+    'order': 0,
+  },
+  {
+    'category': 'sides',
+    'item': 'pig strips',
+    'ammount': 1,
+    'price': 4.25,
+    'order': 0,
+  },
+  {
+    'category': 'entrees',
+    'item': 'creature of unknown origin',
+    'ammount': 1,
+    'price': 25.95,
+    'order': 0,
+  },
+  {
+    'category': 'entrees',
+    'item': 'tortured baby cow',
+    'ammount': 1,
+    'price': 16.25,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'spinach artichoke dip',
+    'ammount': 1,
+    'price': 4.25,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'jalapeno poppers',
+    'ammount': 1,
+    'price': 3.5,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'mozzarella sticks',
+    'ammount': 1,
+    'price': 3.5,
+    'order': 0,
+  },
+  {
+    'category': 'sides',
+    'item': 'corn on the cob',
+    'ammount': 1,
+    'price': 3.25,
+    'order': 0,
+  },
+  {
+    'category': 'sides',
+    'item': 'garlic mashed potatoes',
+    'ammount': 1,
+    'price': 3.25,
+    'order': 0,
+  },
+  {
+    'category': 'sides',
+    'item': 'broccoli',
+    'ammount': 6,
+    'price': 3,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'wings',
+    'ammount': 6,
+    'price': 3,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'cookies',
+    'ammount': 3,
+    'price': 1.5,
+    'order': 0,
+  },
+  {
+    'category': 'appetizers',
+    'item': 'spring rolls',
+    'ammount': 4,
+    'price': 2,
+    'order': 0,
+  },
+  {
+    'category': 'entrees',
+    'item': 'salmon',
+    'ammount': 1,
+    'price': 15,
+    'order': 0,
+  },
+  {
+    'category': 'entrees',
+    'item': 'steak',
+    'ammount': 1,
+    'price': 18,
+    'order': 0,
+  },
+  {
+    'category': 'entrees',
+    'item': 'meat tornado',
+    'ammount': 1,
+    'price': 13,
+    'order': 0,
+  },
+  {
+    'category': 'entrees',
+    'item': 'a little garden',
+    'ammount': 1,
+    'price': 3.5,
+    'order': 0,
+  },
+  {
+    'category': 'desserts',
+    'item': 'ice cream',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
-    'item': 'Cake',
+    'category': 'desserts',
+    'item': 'cake',
     'ammount': 1,
     'price': 2.5,
     'order': 0,
   },
   {
-    'item': 'Pie',
+    'category': 'desserts',
+    'item': 'pie',
     'ammount': 1,
-    'price': 2.5,
+    'price': 2.50,
     'order': 0,
   },
   {
-    'item': 'Coffee',
+    'category': 'drinks',
+    'item': 'coffee',
     'ammount': 1,
     'price': .75,
     'order': 0,
   },
   {
-    'item': 'Tea',
+    'category': 'drinks',
+    'item': 'tea',
     'ammount': 1,
     'price': .75,
     'order': 0,
   },
   {
-    'item': 'Blood of the Innocent',
+    'category': 'drinks',
+    'item': 'blood of the innocent',
     'ammount': 1,
-    'price': 100000,
+    'price': 6.66,
     'order': 0,
   },
 ]
@@ -104,69 +239,16 @@ def greeting():
   '''))
 
 
-def Appetizers():
-  ln_category = 'Appetizers'
-  ln_one = 'Wings'
-  ln_two = 'Cookies'
-  ln_three = 'Spring Rolls'
-
+def List_Category(category):
   print(dedent(f'''
-    {ln_category}
-    {'-' * len(ln_category)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {''}
-  '''))
-
-
-def Entrees():
-  ln_category = 'Entrees'
-  ln_one = 'Salmon'
-  ln_two = 'Steak'
-  ln_three = 'Meat Tornado'
-  ln_four = 'A Literal Garden'
-
-  print(dedent(f'''
-    {ln_category}
-    {'-' * len(ln_category)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {ln_four}
-    {''}
-  '''))
-
-
-def Desserts():
-  ln_category = 'Desserts'
-  ln_one = 'Ice Cream'
-  ln_two = 'Cake'
-  ln_three = 'Pie'
-
-  print(dedent(f'''
-    {ln_category}
-    {'-' * len(ln_category)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {''}
-  '''))
-
-def Drinks():
-  ln_category = 'Drinks'
-  ln_one = 'Coffee'
-  ln_two = 'Tea'
-  ln_three = 'Blood of the Innocent'
-
-  print(dedent(f'''
-    {ln_category}
-    {'-' * len(ln_category)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {''}
-  '''))
+    {category}
+    {'-' * len(category)}'''))
+  for menue in BANK:
+    item = menue['item']
+    price = "%.2f" % round(float(menue['price']),2)
+    space = (' ' * (WIDTH - (len(item) + len(str(price)) + 2)))
+    if category == menue['category']:
+      print(dedent(f'''{item + space + ' $' + str(price)}'''))
 
 
 def Message():
@@ -183,7 +265,8 @@ def Manual():
   ln_one = 'Type "Category" to bring up a list of category options.'
   ln_two = 'Type the name of the category to see the menue items in that category.'
   ln_three = 'Type the name of the menue item you would like to add to the order.'
-  ln_four = 'At any time you can type "quit" or "exit" to stop the application.'
+  ln_five = 'At any time you can type "quit" or "exit" to stop the application.'
+  ln_four = 'type "order" to print current order to screen.'
 
   print(dedent(f'''
     {ln_zero}
@@ -192,23 +275,7 @@ def Manual():
     {ln_two}
     {ln_three}
     {ln_four}
-  '''))
-
-
-def Category():
-  ln_zero = 'Categories'
-  ln_one = 'Appetizers'
-  ln_two = 'Entrees'
-  ln_three = 'Desserts'
-  ln_four = 'Drinks'
-
-  print(dedent(f'''
-    {ln_zero}
-    {'-' * len(ln_zero)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {ln_four}
+    {ln_five}
   '''))
 
 
@@ -218,37 +285,68 @@ def exit():
   '''))
   #sys.exit()
 
-#def complete():
+def complete():
+  print(dedent(f'''
+  {'_' * WIDTH}
+  {'The Snakes Cafe'}
+  {"Eatability Counts"}
+  {''}
+  {'Order: UUID-TBD'}
+  {'=' * WIDTH}'''))
+  subtotal = float('0')
+  for menue in BANK:
+    item = menue['item']
+    order = menue['order']
+    price = str("%.2f" % round(float(menue['order']) * float(menue['price']),2))
+    space = (' ' * (WIDTH - (len(item) + len(str(order)) + len(str(price) + '    '))))
+    if menue['order'] > 0:
+      subtotal = float(price) + subtotal
+      print(dedent(f'''{item + ' x' + str(order) + space + ' $' + str(price)}'''))
+  sales_tax = float(subtotal) * TAX_RATE
+  total_due = float(subtotal) + float(sales_tax)
+  print(dedent(f'''
+  {'*' * WIDTH}
+  {'Subtotal: ' + (' ' * (40 - (len(str(subtotal)) + 12))) + '$' + str("%.2f" % float(subtotal))}
+  {'Sales Tax: ' + (' ' * (40 - (len(str(sales_tax)) + 12))) + '$' + str("%.2f" % float(sales_tax))}
+  {'=' * 40}
+  {'Total Due: ' + (' ' * (40 - (len(str(total_due)) + 12))) + '$' + str("%.2f" % float(total_due))}
+  {'_' * WIDTH}
+  '''))
+
 
 
 def run():
   greeting()
-  Appetizers()
-  Entrees()
-  Desserts()
-  Drinks()
+  for key in CATEGORIES:
+    List_Category(key)
   Message()
   while ORDER_COMPLETE == False:
-    order = input()
+    order = input().lower()
     if order == 'quit' or order == 'exit':
       exit()
       return
-    elif order == 'man' or order == 'Man' or order == 'help':
+    elif order == 'man' or order == 'help':
       Manual()
-    elif order == 'Category':
-      Category()
-    elif order == 'Appetizers':
-      Appetizers()
-    elif order == 'Entrees':
-      Entrees()
-    elif order == 'Desserts':
-      Desserts()
-    elif order == 'Drinks':
-      Drinks()
     for menue in BANK:
+      if order == menue['category']:
+        List_Category(order)
+        print('')
+        break
+    if order == 'category':
+      print('-' * len(order))
+      for key in CATEGORIES:
+        print(key)
+    for menue in BANK:
+      price = "%.2f" % round(float(menue['price']),2)
       if order == menue['item']:
         menue['order'] = menue['order'] + 1
-        print(menue['order'], 'order(s) of', order, 'have been added to your meal.')
+        print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
+        global TOTAL
+        TOTAL = float(price) + TOTAL
+        print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+      elif order == 'order':
+        complete()
+        break
       else:
         next
 
