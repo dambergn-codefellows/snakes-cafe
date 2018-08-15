@@ -3,6 +3,7 @@ from textwrap import dedent
 
 WIDTH = 40
 ORDER_COMPLETE = False
+CATEGORIES = ['appetizers', 'entrees', 'drinks', 'deserts']
 BANK = [
   {
     'category': 'appetizers',
@@ -117,22 +118,6 @@ def greeting():
   '''))
 
 
-def Appetizers():
-  ln_category = 'Appetizers'
-  ln_one = 'Wings'
-  ln_two = 'Cookies'
-  ln_three = 'Spring Rolls'
-
-  print(dedent(f'''
-    {ln_category}
-    {'-' * len(ln_category)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {''}
-  '''))
-
-
 def List_Category(category):
   print(dedent(f'''
     {category}
@@ -140,57 +125,6 @@ def List_Category(category):
   for menue in BANK:
     if category == menue['category']:
       print(dedent(f'''{menue['item']}'''))
-
-  
-
-
-def Entrees():
-  ln_category = 'Entrees'
-  ln_one = 'Salmon'
-  ln_two = 'Steak'
-  ln_three = 'Meat Tornado'
-  ln_four = 'A Literal Garden'
-
-  print(dedent(f'''
-    {ln_category}
-    {'-' * len(ln_category)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {ln_four}
-    {''}
-  '''))
-
-
-def Desserts():
-  ln_category = 'Desserts'
-  ln_one = 'Ice Cream'
-  ln_two = 'Cake'
-  ln_three = 'Pie'
-
-  print(dedent(f'''
-    {ln_category}
-    {'-' * len(ln_category)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {''}
-  '''))
-
-def Drinks():
-  ln_category = 'Drinks'
-  ln_one = 'Coffee'
-  ln_two = 'Tea'
-  ln_three = 'Blood of the Innocent'
-
-  print(dedent(f'''
-    {ln_category}
-    {'-' * len(ln_category)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {''}
-  '''))
 
 
 def Message():
@@ -219,23 +153,6 @@ def Manual():
   '''))
 
 
-def Category():
-  ln_zero = 'Categories'
-  ln_one = 'Appetizers'
-  ln_two = 'Entrees'
-  ln_three = 'Desserts'
-  ln_four = 'Drinks'
-
-  print(dedent(f'''
-    {ln_zero}
-    {'-' * len(ln_zero)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {ln_four}
-  '''))
-
-
 def exit():
   print(dedent(f'''
   Thank you for using snakes cafe!
@@ -247,33 +164,25 @@ def exit():
 
 def run():
   greeting()
-  Appetizers()
-  Entrees()
-  Desserts()
-  Drinks()
+  for key in CATEGORIES:
+    List_Category(key)
   Message()
   while ORDER_COMPLETE == False:
     order = input().lower()
     if order == 'quit' or order == 'exit':
       exit()
       return
-    elif order == 'man' or order == 'Man' or order == 'help':
+    elif order == 'man' or order == 'help':
       Manual()
     for menue in BANK:
       if order == menue['category']:
         List_Category(order)
         print('')
         break
-    # elif order == 'Category':
-    #   Category()
-    # elif order == 'Appetizers':
-    #   Appetizers()
-    # elif order == 'Entrees':
-    #   Entrees()
-    # elif order == 'Desserts':
-    #   Desserts()
-    # elif order == 'Drinks':
-    #   Drinks()
+    if order == 'category':
+      print('-' * len(order))
+      for key in CATEGORIES:
+        print(key)
     for menue in BANK:
       if order == menue['item']:
         menue['order'] = menue['order'] + 1

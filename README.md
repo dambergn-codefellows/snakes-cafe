@@ -62,6 +62,10 @@ Blood of the Innocent
 ## Change Log
 
 ### 2018-08-14
+- Updated README.md file.
+- Converted inputs to lowercase.
+- Created function to build menue from dictonary.
+- Code refactored to use dictonary and list data as templates.
 - 
 
 ### 2018-08-13
