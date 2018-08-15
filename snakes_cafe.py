@@ -18,7 +18,7 @@ BANK = [
     'category': 'desserts',
     'item': 'pudding',
     'ammount': 1,
-    'price': 2.5,
+    'price': 2.50,
     'order': 0,
   },
   {
@@ -193,7 +193,7 @@ BANK = [
     'category': 'desserts',
     'item': 'pie',
     'ammount': 1,
-    'price': 2.5,
+    'price': 2.50,
     'order': 0,
   },
   {
@@ -244,8 +244,11 @@ def List_Category(category):
     {category}
     {'-' * len(category)}'''))
   for menue in BANK:
+    item = menue['item']
+    price = "%.2f" % round(float(menue['price']),2)
+    space = (' ' * (WIDTH - (len(item) + len(str(price)) + 2)))
     if category == menue['category']:
-      print(dedent(f'''{menue['item']}'''))
+      print(dedent(f'''{item + space + ' $' + str(price)}'''))
 
 
 def Message():

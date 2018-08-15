@@ -67,6 +67,7 @@ Blood of the Innocent
 - Created function to build menue from dictonary.
 - Code refactored to use dictonary and list data as templates.
 - Sides category and 3 side items added.
+- Expanded all categories to 6 items.
 
 ### 2018-08-13
 - Added menue items to select from to print to screen.
