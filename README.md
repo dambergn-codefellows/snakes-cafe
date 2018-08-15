@@ -13,7 +13,7 @@ snakes-cafe
 - [X]When run, the program should print an intro message and the menu for the restaurant
 - [X]The restaurant’s menu should include appetizers, entrees, desserts, and beverages. At least 3 in each category
 - [X]The program should prompt the user for an order
-- [X]When a user enters an item, the program should print an acknowledgment of their input
+- [ ]When a user enters an item, the program should print an acknowledgment of their input
 - [X]The program should tell the user how to exit
 ---NEW features---
 - [X]Your menu should get a “Sides” category
@@ -30,45 +30,13 @@ snakes-cafe
 - [X]All input should be case-insensitive
 - [ ]Keep your functions small, concise, and testable.
 
-```
-**************************************
-**    Welcome to the Snakes Cafe!   **
-**    Please see our menu below.    **
-**
-** To quit at any time, type "quit" **
-**************************************
-
-Appetizers
-----------
-Wings
-Cookies
-Spring Rolls
-
-Entrees
--------
-Salmon
-Steak
-Meat Tornado
-A Literal Garden
-
-Desserts
---------
-Ice Cream
-Cake
-Pie
-
-Drinks
-------
-Coffee
-Tea
-Blood of the Innocent
-
-***********************************
-** What would you like to order? **
-***********************************
-```
 
 ## Change Log
+
+### 2018-08-15
+- Got test file linked and working properly.
+- Added UUID to recipt.
+- 
 
 ### 2018-08-14
 - Updated README.md file.
@@ -98,6 +66,7 @@ Blood of the Innocent
   sudo pip install --upgrade pip
   pip install --user pipenv
   sudo -H pip install -U pipenv
+  pipenv --three
   pipenv shell
   pipenv install pytest
   pytest -v

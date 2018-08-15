@@ -1,4 +1,6 @@
 from textwrap import dedent
+from uuid import uuid4
+#pipenv install uuid
 
 
 WIDTH = 80
@@ -291,7 +293,7 @@ def complete():
   {'The Snakes Cafe'}
   {"Eatability Counts"}
   {''}
-  {'Order: UUID-TBD'}
+  {'Order: ' + str(uuid4())}
   {'=' * WIDTH}'''))
   subtotal = float('0')
   for menue in BANK:
@@ -353,3 +355,7 @@ def run():
 
 if __name__ == '__main__':
   run()
+
+
+def test():
+  return True
