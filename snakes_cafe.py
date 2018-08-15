@@ -3,7 +3,7 @@ from textwrap import dedent
 
 WIDTH = 80
 ORDER_COMPLETE = False
-TAX_RATE = float('.1')
+TAX_RATE = float('.096')
 TOTAL = float('0')
 CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
 BANK = [
@@ -302,7 +302,7 @@ def complete():
     if menue['order'] > 0:
       subtotal = float(price) + subtotal
       print(dedent(f'''{item + ' x' + str(order) + space + ' $' + str(price)}'''))
-  sales_tax = float(subtotal) * .1
+  sales_tax = float(subtotal) * TAX_RATE
   total_due = float(subtotal) + float(sales_tax)
   print(dedent(f'''
   {'*' * WIDTH}
