@@ -256,9 +256,11 @@ def list_category(category):
 
 
 def message():
+  ln_tip = 'Type "help" to see a list of options'
   ln_message = 'What would you like to order?'
   print(dedent(f'''
     {'*' * WIDTH}
+    {'**' + (' ' * (((WIDTH - 2) - len(ln_tip)) // 2)) + ln_tip + (' ' * (((WIDTH - 6) - len(ln_tip)) // 2)) + '**'}
     {'**' + (' ' * (((WIDTH - 2) - len(ln_message)) // 2)) + ln_message + (' ' * (((WIDTH - 4) - len(ln_message)) // 2)) + '**'}
     {'*' * WIDTH}
   '''))

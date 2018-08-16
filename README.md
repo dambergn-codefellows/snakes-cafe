@@ -57,6 +57,7 @@ snakes-cafe
 - Remove item from current order by typing remove and the name of the item.
 - Attempted some testing with no positive results.
 - New branch 'class-03-robust' to impliment new features and tests.
+- 
 
 ### 2018-08-14
 - Updated README.md file.
@@ -67,6 +68,7 @@ snakes-cafe
 - Expanded all categories to 6 items.
 - Menue now prints out prices of items.
 - When added to order price of item is printed as well as a current total.
+- Added tip to message line at bottom to bring up the help menue.
 
 ### 2018-08-13
 - Added menue items to select from to print to screen.
