@@ -15,7 +15,6 @@ snakes-cafe
 - [X]The program should prompt the user for an order
 - [X]When a user enters an item, the program should print an acknowledgment of their input
 - [X]The program should tell the user how to exit
----NEW features---
 - [X]Your menu should get a “Sides” category
 - [X]Every menu category should have at least 6 items
 - [X]Your menu items should all get prices. Use whatever currency symbol you want, but make sure that the user knows what the prices and currencies are.
@@ -29,6 +28,20 @@ snakes-cafe
 - [X]If the user types remove <ITEM NAME>, 1 item of the type <ITEM NAME> should be removed from their order, and their order’s total should be printed to the screen
 - [X]All input should be case-insensitive
 - [ ]Keep your functions small, concise, and testable.
+---NEW features---
+- [ ]Every menu category should have at least 9 items
+- [ ]Add to your snakes-cafe project the option to provide a separate file as a menu with the appropriate help text (see Lecture 01). If this option isn’t used, the menu you’ve been building all week will be used.
+- [ ]The optional separate menu must be a comma-separated value (.csv) file, where each row includes the menu item’s name (str), category (str), price (float), and quantity (int) referring to the in-stock amount of that item.
+- [ ]If the provided separate menu file isn’t a CSV file, alert the user with an appropriate error message. Note: the user should never see an actual Python Exception
+- [ ]When the user adds an item to their order, they should have the option of providing the quantity as well.
+- [ ]If they don’t provide the quantity, a quantity of 1 is assumed.
+- [ ]If the quantity they provide is invalid (negative or not a number), alert the user with an appropriate error message
+- [ ]If the quantity they provide is beyond whatever is left in stock, alert the user with an appropriate error message.
+- [ ]If the user tries to add/remove an item that isn’t on whatever menu has been loaded, alert the user with an appropriate error message
+- [ ]If the user tries to remove an item that isn’t a part of their order, alert the user with an appropriate error message
+- [ ]No matter what, the user should never see a traceback. Not even for a Keyboard Interrupt.
+- [ ]Every bit of functionality that you add should be tested.
+- [ ]As a general rule at this time, you should have a test for valid, invalid, and edge case variants for every function that you define. There are exceptions. The exceptions are not the rule.
 
 
 ## Change Log
@@ -42,6 +55,7 @@ snakes-cafe
 - Fixed capitals in function names.
 - If the user types menu, the entire menu is printed to the console.
 - Remove item from current order by typing remove and the name of the item.
+- Attempted some testing with no positive results.
 
 ### 2018-08-14
 - Updated README.md file.
