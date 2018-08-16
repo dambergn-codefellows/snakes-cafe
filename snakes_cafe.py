@@ -5,6 +5,7 @@ from uuid import uuid4
 
 WIDTH = 80
 ORDER_COMPLETE = False
+VALID = False
 TAX_RATE = float('.096')
 TOTAL = float('0')
 CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
@@ -331,13 +332,17 @@ def run():
     List_Category(key)
   Message()
   while ORDER_COMPLETE == False:
+    global VALID
+    VALID = False
     order = input().lower()
     if order == 'quit' or order == 'exit':
       exit()
       return
     elif order == 'man' or order == 'help':
+      VALID = True
       Manual()
     elif order == 'category':
+      VALID = True
       print('-' * len(order))
       for key in CATEGORIES:
         print(key)
@@ -345,13 +350,18 @@ def run():
       if order == menue['category']:
         List_Category(order)
         print('')
+        VALID = True
         break
     for menue in BANK:
       if order == menue['item']:
+        VALID = True
         add_menue_item(order, menue)
     if order == 'order':
+      VALID = True
       complete()
       continue
+    if VALID is False:
+      print('That is not a valid selection please type "help" to see options.')
     else:
       next
 

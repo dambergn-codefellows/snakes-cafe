@@ -13,7 +13,7 @@ snakes-cafe
 - [X]When run, the program should print an intro message and the menu for the restaurant
 - [X]The restaurant’s menu should include appetizers, entrees, desserts, and beverages. At least 3 in each category
 - [X]The program should prompt the user for an order
-- [ ]When a user enters an item, the program should print an acknowledgment of their input
+- [X]When a user enters an item, the program should print an acknowledgment of their input
 - [X]The program should tell the user how to exit
 ---NEW features---
 - [X]Your menu should get a “Sides” category
@@ -37,6 +37,8 @@ snakes-cafe
 - Got test file linked and working properly.
 - Added UUID to recipt.
 - Refactored adding and printing of menue item added to order.
+- Fixed new bug where after order program would exit.
+- Fixed message when user enters something that is not a handled option.
 
 ### 2018-08-14
 - Updated README.md file.
