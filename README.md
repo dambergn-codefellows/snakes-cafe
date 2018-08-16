@@ -46,9 +46,9 @@ snakes-cafe
 
 ## Change Log
 
-### 2018-08-15
+### 2018-08-16
 - Updated all functions with descriptions.
-- 
+- Added KeyboardInterrupt to handle CTRL+C
 
 ### 2018-08-15
 - Got test file linked and working properly.
