@@ -26,7 +26,7 @@ snakes-cafe
 - [X]In the order printout, all of the costs should be right-justified, and all of the item names should be left-justified
 - [X]If the user types menu, the entire menu is printed to the console
 - [X]If the user types the name of any of your categories, the items in that category should be printed to the console
-- [ ]If the user types remove <ITEM NAME>, 1 item of the type <ITEM NAME> should be removed from their order, and their order’s total should be printed to the screen
+- [X]If the user types remove <ITEM NAME>, 1 item of the type <ITEM NAME> should be removed from their order, and their order’s total should be printed to the screen
 - [X]All input should be case-insensitive
 - [ ]Keep your functions small, concise, and testable.
 
@@ -41,6 +41,7 @@ snakes-cafe
 - Fixed message when user enters something that is not a handled option.
 - Fixed capitals in function names.
 - If the user types menu, the entire menu is printed to the console.
+- Remove item from current order by typing remove and the name of the item.
 
 ### 2018-08-14
 - Updated README.md file.
