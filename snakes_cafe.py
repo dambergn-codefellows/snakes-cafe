@@ -351,7 +351,7 @@ def run():
         add_menue_item(order, menue)
     if order == 'order':
       complete()
-      break
+      continue
     else:
       next
 
