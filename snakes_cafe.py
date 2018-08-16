@@ -242,7 +242,7 @@ def greeting():
   '''))
 
 
-def List_Category(category):
+def list_category(category):
   print(dedent(f'''
     {category}
     {'-' * len(category)}'''))
@@ -254,7 +254,7 @@ def List_Category(category):
       print(dedent(f'''{item + space + ' $' + str(price)}'''))
 
 
-def Message():
+def message():
   ln_message = 'What would you like to order?'
   print(dedent(f'''
     {'*' * WIDTH}
@@ -263,7 +263,7 @@ def Message():
   '''))
 
 
-def Manual():
+def manual():
   ln_zero = 'Manual'
   ln_one = 'Type "Category" to bring up a list of category options.'
   ln_two = 'Type the name of the category to see the menue items in that category.'
@@ -329,8 +329,8 @@ def add_menue_item(order, menue):
 def run():
   greeting()
   for key in CATEGORIES:
-    List_Category(key)
-  Message()
+    list_category(key)
+  message()
   while ORDER_COMPLETE == False:
     global VALID
     VALID = False
@@ -340,7 +340,7 @@ def run():
       return
     elif order == 'man' or order == 'help':
       VALID = True
-      Manual()
+      manual()
     elif order == 'category':
       VALID = True
       print('-' * len(order))
@@ -348,7 +348,7 @@ def run():
         print(key)
     for menue in BANK:
       if order == menue['category']:
-        List_Category(order)
+        list_category(order)
         print('')
         VALID = True
         break

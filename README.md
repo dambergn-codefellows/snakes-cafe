@@ -39,6 +39,7 @@ snakes-cafe
 - Refactored adding and printing of menue item added to order.
 - Fixed new bug where after order program would exit.
 - Fixed message when user enters something that is not a handled option.
+- Fixed capitals in function names.
 
 ### 2018-08-14
 - Updated README.md file.
@@ -72,4 +73,10 @@ snakes-cafe
   pipenv shell
   pipenv install pytest
   pytest -v
+
+  #to remove env
+  pipenv --rm
+
+  #to check pipenv
+  pipenv check
 ```
