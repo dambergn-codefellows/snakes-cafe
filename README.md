@@ -36,7 +36,7 @@ snakes-cafe
 ### 2018-08-15
 - Got test file linked and working properly.
 - Added UUID to recipt.
-- 
+- Refactored adding and printing of menue item added to order.
 
 ### 2018-08-14
 - Updated README.md file.

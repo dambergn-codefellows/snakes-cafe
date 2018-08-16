@@ -316,6 +316,14 @@ def complete():
   '''))
 
 
+def add_menue_item(order, menue):
+  price = "%.2f" % round(float(menue['price']),2)
+  menue['order'] = menue['order'] + 1
+  print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
+  global TOTAL
+  TOTAL = float(price) + TOTAL
+  print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+
 
 def run():
   greeting()
@@ -329,23 +337,24 @@ def run():
       return
     elif order == 'man' or order == 'help':
       Manual()
+    elif order == 'category':
+      print('-' * len(order))
+      for key in CATEGORIES:
+        print(key)
     for menue in BANK:
       if order == menue['category']:
         List_Category(order)
         print('')
         break
-    if order == 'category':
-      print('-' * len(order))
-      for key in CATEGORIES:
-        print(key)
     for menue in BANK:
-      price = "%.2f" % round(float(menue['price']),2)
+      # price = "%.2f" % round(float(menue['price']),2)
       if order == menue['item']:
-        menue['order'] = menue['order'] + 1
-        print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
-        global TOTAL
-        TOTAL = float(price) + TOTAL
-        print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+        add_menue_item(order, menue)
+        # menue['order'] = menue['order'] + 1
+        # print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
+        # global TOTAL
+        # TOTAL = float(price) + TOTAL
+        # print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
       elif order == 'order':
         complete()
         break
