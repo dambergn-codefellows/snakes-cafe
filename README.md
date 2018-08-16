@@ -49,6 +49,7 @@ snakes-cafe
 ### 2018-08-16
 - Updated all functions with descriptions.
 - Added KeyboardInterrupt to handle CTRL+C
+- Added quantity to dictionarry.
 
 ### 2018-08-15
 - Got test file linked and working properly.
@@ -95,6 +96,7 @@ snakes-cafe
   pipenv shell
   pipenv install pytest
   pytest -v
+  pipenv install uuid
 
   #to remove env
   pipenv --rm

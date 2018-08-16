@@ -1,7 +1,7 @@
 from textwrap import dedent
 from uuid import uuid4
-#pipenv install uuid
-
+# import pdb; pdb.set_trace()
+# type n for next
 
 WIDTH = 80
 ORDER_COMPLETE = False
@@ -16,6 +16,7 @@ BANK = [
     'ammount': 1,
     'price': 1.95,
     'order': 0,
+    'quantity': 6,
   },
   {
     'category': 'desserts',
@@ -23,6 +24,7 @@ BANK = [
     'ammount': 1,
     'price': 2.50,
     'order': 0,
+    'quantity': 6,
   },
   {
     'category': 'desserts',
@@ -30,6 +32,7 @@ BANK = [
     'ammount': 1,
     'price': 5.5,
     'order': 0,
+    'quantity': 3,
   },
   {
     'category': 'drinks',
@@ -37,6 +40,7 @@ BANK = [
     'ammount': 1,
     'price': 2.5,
     'order': 0,
+    'quantity': 100,
   },
   {
     'category': 'drinks',
@@ -44,6 +48,7 @@ BANK = [
     'ammount': 1,
     'price': 1.5,
     'order': 0,
+    'quantity': 100,
   },
   {
     'category': 'drinks',
@@ -51,6 +56,7 @@ BANK = [
     'ammount': 1,
     'price': 5.59,
     'order': 0,
+    'quantity': 8,
   },
   {
     'category': 'sides',
@@ -58,6 +64,7 @@ BANK = [
     'ammount': 1,
     'price': 3.5,
     'order': 0,
+    'quantity': 7,
   },
   {
     'category': 'sides',
@@ -65,6 +72,7 @@ BANK = [
     'ammount': 1,
     'price': 3.75,
     'order': 0,
+    'quantity': 4,
   },
   {
     'category': 'sides',
@@ -72,6 +80,7 @@ BANK = [
     'ammount': 1,
     'price': 4.25,
     'order': 0,
+    'quantity': 3,
   },
   {
     'category': 'entrees',
@@ -79,6 +88,7 @@ BANK = [
     'ammount': 1,
     'price': 25.95,
     'order': 0,
+    'quantity': 1,
   },
   {
     'category': 'entrees',
@@ -86,6 +96,7 @@ BANK = [
     'ammount': 1,
     'price': 16.25,
     'order': 0,
+    'quantity': 4,
   },
   {
     'category': 'appetizers',
@@ -93,20 +104,23 @@ BANK = [
     'ammount': 1,
     'price': 4.25,
     'order': 0,
+    'quantity': 6,
   },
   {
     'category': 'appetizers',
     'item': 'jalapeno poppers',
-    'ammount': 1,
+    'ammount': 6,
     'price': 3.5,
     'order': 0,
+    'quantity': 24,
   },
   {
     'category': 'appetizers',
     'item': 'mozzarella sticks',
-    'ammount': 1,
+    'ammount': 4,
     'price': 3.5,
     'order': 0,
+    'quantity': 16,
   },
   {
     'category': 'sides',
@@ -114,6 +128,7 @@ BANK = [
     'ammount': 1,
     'price': 3.25,
     'order': 0,
+    'quantity': 3,
   },
   {
     'category': 'sides',
@@ -121,6 +136,7 @@ BANK = [
     'ammount': 1,
     'price': 3.25,
     'order': 0,
+    'quantity': 10,
   },
   {
     'category': 'sides',
@@ -128,6 +144,7 @@ BANK = [
     'ammount': 6,
     'price': 3,
     'order': 0,
+    'quantity': 48,
   },
   {
     'category': 'appetizers',
@@ -135,6 +152,7 @@ BANK = [
     'ammount': 6,
     'price': 3,
     'order': 0,
+    'quantity': 48,
   },
   {
     'category': 'appetizers',
@@ -142,6 +160,7 @@ BANK = [
     'ammount': 3,
     'price': 1.5,
     'order': 0,
+    'quantity': 9,
   },
   {
     'category': 'appetizers',
@@ -149,6 +168,7 @@ BANK = [
     'ammount': 4,
     'price': 2,
     'order': 0,
+    'quantity': 400,
   },
   {
     'category': 'entrees',
@@ -156,6 +176,7 @@ BANK = [
     'ammount': 1,
     'price': 15,
     'order': 0,
+    'quantity': 3,
   },
   {
     'category': 'entrees',
@@ -163,6 +184,7 @@ BANK = [
     'ammount': 1,
     'price': 18,
     'order': 0,
+    'quantity': 2,
   },
   {
     'category': 'entrees',
@@ -170,6 +192,7 @@ BANK = [
     'ammount': 1,
     'price': 13,
     'order': 0,
+    'quantity': 4,
   },
   {
     'category': 'entrees',
@@ -177,6 +200,7 @@ BANK = [
     'ammount': 1,
     'price': 3.5,
     'order': 0,
+    'quantity': 6,
   },
   {
     'category': 'desserts',
@@ -184,6 +208,7 @@ BANK = [
     'ammount': 1,
     'price': 2.5,
     'order': 0,
+    'quantity': 6,
   },
   {
     'category': 'desserts',
@@ -191,6 +216,7 @@ BANK = [
     'ammount': 1,
     'price': 2.5,
     'order': 0,
+    'quantity': 6,
   },
   {
     'category': 'desserts',
@@ -198,6 +224,7 @@ BANK = [
     'ammount': 1,
     'price': 2.50,
     'order': 0,
+    'quantity': 6,
   },
   {
     'category': 'drinks',
@@ -205,6 +232,7 @@ BANK = [
     'ammount': 1,
     'price': .75,
     'order': 0,
+    'quantity': 100,
   },
   {
     'category': 'drinks',
@@ -212,6 +240,7 @@ BANK = [
     'ammount': 1,
     'price': .75,
     'order': 0,
+    'quantity': 100,
   },
   {
     'category': 'drinks',
@@ -219,6 +248,7 @@ BANK = [
     'ammount': 1,
     'price': 6.66,
     'order': 0,
+    'quantity': 100,
   },
 ]
 
