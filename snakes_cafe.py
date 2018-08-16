@@ -347,19 +347,13 @@ def run():
         print('')
         break
     for menue in BANK:
-      # price = "%.2f" % round(float(menue['price']),2)
       if order == menue['item']:
         add_menue_item(order, menue)
-        # menue['order'] = menue['order'] + 1
-        # print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
-        # global TOTAL
-        # TOTAL = float(price) + TOTAL
-        # print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
-      elif order == 'order':
-        complete()
-        break
-      else:
-        next
+    if order == 'order':
+      complete()
+      break
+    else:
+      next
 
 
 if __name__ == '__main__':
