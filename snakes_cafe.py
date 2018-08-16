@@ -328,6 +328,15 @@ def add_menue_item(order, menue):
   print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
 
 
+def remove_menue_item(order, menue):
+  price = "%.2f" % round(float(menue['price']),2)
+  menue['order'] = menue['order'] - 1
+  print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been removed from your meal.')
+  global TOTAL
+  TOTAL = TOTAL - float(price)
+  print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+
+
 def run():
   greeting()
   for key in CATEGORIES:
@@ -362,6 +371,12 @@ def run():
       if order == menue['item']:
         VALID = True
         add_menue_item(order, menue)
+    if order.split(' ', 1)[0] == 'remove':
+      order = order.split(' ', 1)[1]
+      for menue in BANK:
+        if order == menue['item']:
+          VALID = True
+          remove_menue_item(order, menue)
     if order == 'order':
       VALID = True
       complete()
