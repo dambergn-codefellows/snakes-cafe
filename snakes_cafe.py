@@ -239,7 +239,7 @@ def greeting():
     {'**' + (' ' * (WIDTH - 4)) + '**'}
     {'**' + (' ' * (((WIDTH - 4) - len(ln_three)) // 2)) + ln_three + (' ' * (((WIDTH - 4) - len(ln_three)) // 2)) + '**'}
     {'*' * WIDTH}
-  '''))
+    '''))
 
 
 def list_category(category):

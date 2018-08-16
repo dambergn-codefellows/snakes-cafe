@@ -56,6 +56,7 @@ snakes-cafe
 - If the user types menu, the entire menu is printed to the console.
 - Remove item from current order by typing remove and the name of the item.
 - Attempted some testing with no positive results.
+- New branch 'class-03-robust' to impliment new features and tests.
 
 ### 2018-08-14
 - Updated README.md file.
