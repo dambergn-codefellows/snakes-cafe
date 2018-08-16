@@ -16,7 +16,7 @@ BANK = [
     'ammount': 1,
     'price': 1.95,
     'order': 0,
-    'quantity': 6,
+    'inventory': 6,
   },
   {
     'category': 'desserts',
@@ -24,7 +24,7 @@ BANK = [
     'ammount': 1,
     'price': 2.50,
     'order': 0,
-    'quantity': 6,
+    'inventory': 6,
   },
   {
     'category': 'desserts',
@@ -32,7 +32,7 @@ BANK = [
     'ammount': 1,
     'price': 5.5,
     'order': 0,
-    'quantity': 3,
+    'inventory': 3,
   },
   {
     'category': 'drinks',
@@ -40,7 +40,7 @@ BANK = [
     'ammount': 1,
     'price': 2.5,
     'order': 0,
-    'quantity': 100,
+    'inventory': 100,
   },
   {
     'category': 'drinks',
@@ -48,7 +48,7 @@ BANK = [
     'ammount': 1,
     'price': 1.5,
     'order': 0,
-    'quantity': 100,
+    'inventory': 100,
   },
   {
     'category': 'drinks',
@@ -56,7 +56,7 @@ BANK = [
     'ammount': 1,
     'price': 5.59,
     'order': 0,
-    'quantity': 8,
+    'inventory': 8,
   },
   {
     'category': 'sides',
@@ -64,7 +64,7 @@ BANK = [
     'ammount': 1,
     'price': 3.5,
     'order': 0,
-    'quantity': 7,
+    'inventory': 7,
   },
   {
     'category': 'sides',
@@ -72,7 +72,7 @@ BANK = [
     'ammount': 1,
     'price': 3.75,
     'order': 0,
-    'quantity': 4,
+    'inventory': 4,
   },
   {
     'category': 'sides',
@@ -80,7 +80,7 @@ BANK = [
     'ammount': 1,
     'price': 4.25,
     'order': 0,
-    'quantity': 3,
+    'inventory': 3,
   },
   {
     'category': 'entrees',
@@ -88,7 +88,7 @@ BANK = [
     'ammount': 1,
     'price': 25.95,
     'order': 0,
-    'quantity': 1,
+    'inventory': 1,
   },
   {
     'category': 'entrees',
@@ -96,7 +96,7 @@ BANK = [
     'ammount': 1,
     'price': 16.25,
     'order': 0,
-    'quantity': 4,
+    'inventory': 4,
   },
   {
     'category': 'appetizers',
@@ -104,7 +104,7 @@ BANK = [
     'ammount': 1,
     'price': 4.25,
     'order': 0,
-    'quantity': 6,
+    'inventory': 6,
   },
   {
     'category': 'appetizers',
@@ -112,7 +112,7 @@ BANK = [
     'ammount': 6,
     'price': 3.5,
     'order': 0,
-    'quantity': 24,
+    'inventory': 24,
   },
   {
     'category': 'appetizers',
@@ -120,7 +120,7 @@ BANK = [
     'ammount': 4,
     'price': 3.5,
     'order': 0,
-    'quantity': 16,
+    'inventory': 16,
   },
   {
     'category': 'sides',
@@ -128,7 +128,7 @@ BANK = [
     'ammount': 1,
     'price': 3.25,
     'order': 0,
-    'quantity': 3,
+    'inventory': 3,
   },
   {
     'category': 'sides',
@@ -136,7 +136,7 @@ BANK = [
     'ammount': 1,
     'price': 3.25,
     'order': 0,
-    'quantity': 10,
+    'inventory': 10,
   },
   {
     'category': 'sides',
@@ -144,7 +144,7 @@ BANK = [
     'ammount': 6,
     'price': 3,
     'order': 0,
-    'quantity': 48,
+    'inventory': 48,
   },
   {
     'category': 'appetizers',
@@ -152,7 +152,7 @@ BANK = [
     'ammount': 6,
     'price': 3,
     'order': 0,
-    'quantity': 48,
+    'inventory': 48,
   },
   {
     'category': 'appetizers',
@@ -160,7 +160,7 @@ BANK = [
     'ammount': 3,
     'price': 1.5,
     'order': 0,
-    'quantity': 9,
+    'inventory': 9,
   },
   {
     'category': 'appetizers',
@@ -168,7 +168,7 @@ BANK = [
     'ammount': 4,
     'price': 2,
     'order': 0,
-    'quantity': 400,
+    'inventory': 400,
   },
   {
     'category': 'entrees',
@@ -176,7 +176,7 @@ BANK = [
     'ammount': 1,
     'price': 15,
     'order': 0,
-    'quantity': 3,
+    'inventory': 3,
   },
   {
     'category': 'entrees',
@@ -184,7 +184,7 @@ BANK = [
     'ammount': 1,
     'price': 18,
     'order': 0,
-    'quantity': 2,
+    'inventory': 2,
   },
   {
     'category': 'entrees',
@@ -192,7 +192,7 @@ BANK = [
     'ammount': 1,
     'price': 13,
     'order': 0,
-    'quantity': 4,
+    'inventory': 4,
   },
   {
     'category': 'entrees',
@@ -200,7 +200,7 @@ BANK = [
     'ammount': 1,
     'price': 3.5,
     'order': 0,
-    'quantity': 6,
+    'inventory': 6,
   },
   {
     'category': 'desserts',
@@ -208,7 +208,7 @@ BANK = [
     'ammount': 1,
     'price': 2.5,
     'order': 0,
-    'quantity': 6,
+    'inventory': 6,
   },
   {
     'category': 'desserts',
@@ -216,7 +216,7 @@ BANK = [
     'ammount': 1,
     'price': 2.5,
     'order': 0,
-    'quantity': 6,
+    'inventory': 6,
   },
   {
     'category': 'desserts',
@@ -224,7 +224,7 @@ BANK = [
     'ammount': 1,
     'price': 2.50,
     'order': 0,
-    'quantity': 6,
+    'inventory': 6,
   },
   {
     'category': 'drinks',
@@ -232,7 +232,7 @@ BANK = [
     'ammount': 1,
     'price': .75,
     'order': 0,
-    'quantity': 100,
+    'inventory': 100,
   },
   {
     'category': 'drinks',
@@ -240,7 +240,7 @@ BANK = [
     'ammount': 1,
     'price': .75,
     'order': 0,
-    'quantity': 100,
+    'inventory': 100,
   },
   {
     'category': 'drinks',
@@ -248,7 +248,7 @@ BANK = [
     'ammount': 1,
     'price': 6.66,
     'order': 0,
-    'quantity': 100,
+    'inventory': 100,
   },
 ]
 
