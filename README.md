@@ -47,6 +47,7 @@ snakes-cafe
 ## Change Log
 
 ### 2018-08-15
+- Updated all functions with descriptions.
 - 
 
 ### 2018-08-15

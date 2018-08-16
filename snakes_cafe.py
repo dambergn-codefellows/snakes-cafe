@@ -243,6 +243,8 @@ def greeting():
 
 
 def list_category(category):
+  """Prints out menue items within a catagory.
+  """
   print(dedent(f'''
     {category}
     {'-' * len(category)}'''))
@@ -256,6 +258,8 @@ def list_category(category):
 
 
 def message():
+  """Message that prints out after the menue on program start.
+  """
   ln_tip = 'Type "help" to see a list of options'
   ln_message = 'What would you like to order?'
   print(dedent(f'''
@@ -267,6 +271,8 @@ def message():
 
 
 def manual():
+  """Prints a help screen to guide a user with possible commands and options.
+  """
   ln_zero = 'Manual'
   ln_one = 'Type "menue" to re-print the entire menue.'
   ln_two = 'Type "Category" to bring up a list of category options.'
@@ -288,12 +294,16 @@ def manual():
 
 
 def exit():
+  """exits the programs and prints a goodbye message.
+  """
   print(dedent(f'''
   Thank you for using snakes cafe!
   '''))
   #sys.exit()
 
 def complete():
+  """Prints out a recipt for the current order status.
+  """
   print(dedent(f'''
   {'_' * WIDTH}
   {'The Snakes Cafe'}
@@ -323,6 +333,9 @@ def complete():
 
 
 def add_menue_item(order, menue):
+  """Adds a selected item to the current order and iterates it in the dictonary.
+  Prints out current total.
+  """
   price = "%.2f" % round(float(menue['price']),2)
   menue['order'] = menue['order'] + 1
   print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
@@ -332,6 +345,9 @@ def add_menue_item(order, menue):
 
 
 def remove_menue_item(order, menue):
+  """Removes a selected item to the current order and iterates it in the dictonary.
+  Prints out current total.
+  """
   price = "%.2f" % round(float(menue['price']),2)
   menue['order'] = menue['order'] - 1
   print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been removed from your meal.')
@@ -341,6 +357,8 @@ def remove_menue_item(order, menue):
 
 
 def run():
+  """Main function to check and pass user input.
+  """
   greeting()
   for key in CATEGORIES:
     list_category(key)
