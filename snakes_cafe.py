@@ -265,11 +265,12 @@ def message():
 
 def manual():
   ln_zero = 'Manual'
-  ln_one = 'Type "Category" to bring up a list of category options.'
-  ln_two = 'Type the name of the category to see the menue items in that category.'
-  ln_three = 'Type the name of the menue item you would like to add to the order.'
-  ln_five = 'At any time you can type "quit" or "exit" to stop the application.'
-  ln_four = 'type "order" to print current order to screen.'
+  ln_one = 'Type "menue" to re-print the entire menue.'
+  ln_two = 'Type "Category" to bring up a list of category options.'
+  ln_three = 'Type the name of the category to see the menue items in that category.'
+  ln_four = 'Type the name of the menue item you would like to add to the order.'
+  ln_five = 'type "order" to print current order to screen.'
+  ln_six = 'At any time you can type "quit" or "exit" to stop the application.'
 
   print(dedent(f'''
     {ln_zero}
@@ -279,6 +280,7 @@ def manual():
     {ln_three}
     {ln_four}
     {ln_five}
+    {ln_six}
   '''))
 
 
@@ -346,6 +348,10 @@ def run():
       print('-' * len(order))
       for key in CATEGORIES:
         print(key)
+    elif order == 'menue':
+      VALID = True
+      for key in CATEGORIES:
+        list_category(key)
     for menue in BANK:
       if order == menue['category']:
         list_category(order)

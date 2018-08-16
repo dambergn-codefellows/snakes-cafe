@@ -21,10 +21,10 @@ snakes-cafe
 - [X]Your menu items should all get prices. Use whatever currency symbol you want, but make sure that the user knows what the prices and currencies are.
 - [X]Whenever the user adds an item to their order, they’re notified of the total cost of their order up to that point.
 - [X]If the user types order, their entire order is printed to the console.
-- [ ]Every order should get a universally unique identifier. Consider using the uuid package
+- [X]Every order should get a universally unique identifier. Consider using the uuid package
 - [X]In the order printout you must include sales tax (9.6% in Seattle as of 2018) in the final total (round up to 2 decimal places)
 - [X]In the order printout, all of the costs should be right-justified, and all of the item names should be left-justified
-- [ ]If the user types menu, the entire menu is printed to the console
+- [X]If the user types menu, the entire menu is printed to the console
 - [X]If the user types the name of any of your categories, the items in that category should be printed to the console
 - [ ]If the user types remove <ITEM NAME>, 1 item of the type <ITEM NAME> should be removed from their order, and their order’s total should be printed to the screen
 - [X]All input should be case-insensitive
@@ -40,6 +40,7 @@ snakes-cafe
 - Fixed new bug where after order program would exit.
 - Fixed message when user enters something that is not a handled option.
 - Fixed capitals in function names.
+- If the user types menu, the entire menu is printed to the console.
 
 ### 2018-08-14
 - Updated README.md file.
