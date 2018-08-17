@@ -1,10 +1,14 @@
 def getMenue():
   parsedCSV = []
   menue = []
-  with open('./assets/menue_breakfast.csv', 'r') as rf:
-    for line in rf:
-      new_line = line.replace('\n', ' ').split(',')
-      parsedCSV.append(new_line)
+  try:
+    with open('./assets/menue_reakfast.csv', 'r') as rf:
+      for line in rf:
+        new_line = line.replace('\n', ' ').split(',')
+        parsedCSV.append(new_line)
+  except(FileNotFoundError, TypeError) as e:
+    print(e)
+
     
   menue.append({})
   for dictonary in range(2,len(parsedCSV)):

@@ -12,14 +12,17 @@ CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
 MENUE = []
 
 
-def getMenue(which_menue):
+def getMenue(file_path):
   '''Parses data from csv file and builds menue dictonarry.
   '''
   parsedCSV = []
-  with open('./assets/menue_' + which_menue + '.csv', 'r') as rf:
-    for line in rf:
-      new_line = line.replace('\n', ' ').split(',')
-      parsedCSV.append(new_line)
+  try:
+    with open(file_path, 'r') as rf:
+      for line in rf:
+        new_line = line.replace('\n', ' ').split(',')
+        parsedCSV.append(new_line)
+  except(FileNotFoundError, TypeError) as e:
+    print('file not found')
     
   for dictonary in range(2,len(parsedCSV)):
     MENUE.append(
@@ -86,7 +89,8 @@ def manual():
   ln_three = 'Type the name of the category to see the menue items in that category.'
   ln_four = 'Type the name of the menue item you would like to add to the order.'
   ln_five = 'type "order" to print current order to screen.'
-  ln_six = 'At any time you can type "quit" or "exit" to stop the application.'
+  ln_six = 'If you would like to load a custom csv file type "load" "file_path"'
+  ln_seven = 'At any time you can type "quit" or "exit" to stop the application.'
 
   print(dedent(f'''
     {ln_zero}
@@ -97,6 +101,7 @@ def manual():
     {ln_four}
     {ln_five}
     {ln_six}
+    {ln_seven}
   '''))
 
 
@@ -177,6 +182,12 @@ def print_menue():
       list_category(key)
 
 
+def load_custom_menue(file_path):
+  del MENUE[:]
+  getMenue(file_path)
+  print_menue()
+
+
 def run():
   """Main function to check and pass user input.
   """
@@ -193,10 +204,14 @@ def run():
       if order == "":
         order = 'dinner'
       VALID = True
-      select_menue(order)
+      select_menue('./assets/menue_' + order + '.csv')
     elif order == 'man' or order == 'help':
       VALID = True
       manual()
+    elif order.split(' ', 1)[0] == 'load':
+      VALID = True
+      order = order.split(' ', 1)[1]
+      load_custom_menue(order)
     elif order == 'category':
       VALID = True
       print('-' * len(order))
