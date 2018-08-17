@@ -29,7 +29,6 @@ def getMenue(which_menue):
     parsedCSV[1][3] : parsedCSV[dictonary][3], 
     parsedCSV[1][4] : parsedCSV[dictonary][4], 
     parsedCSV[1][5] : parsedCSV[dictonary][5]})
-getMenue('breakfast')
 
 
 def greeting():
@@ -164,6 +163,13 @@ def remove_menue_item(order, menue):
   print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
 
 
+def select_menue(order):
+  '''Selects which menue to use and prints it to the screen.
+  '''
+  getMenue(order)
+  print_menue()
+
+
 def print_menue():
   '''Prints out the entire menue to screen.
   '''
@@ -184,6 +190,9 @@ def run():
     if order == 'quit' or order == 'exit':
       exit()
       return
+    elif order == 'breakfast' or order == 'dinner':
+      VALID = True
+      select_menue(order)
     elif order == 'man' or order == 'help':
       VALID = True
       manual()
