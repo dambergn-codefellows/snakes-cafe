@@ -42,7 +42,22 @@ snakes-cafe
 - [ ]No matter what, the user should never see a traceback. Not even for a Keyboard Interrupt.
 - [ ]Every bit of functionality that you add should be tested.
 - [ ]As a general rule at this time, you should have a test for valid, invalid, and edge case variants for every function that you define. There are exceptions. The exceptions are not the rule.
-
+---NEW New features---
+- [ ]Every menu category should have at least 12 items
+- [ ]Create an Order class. Whatever means you were using to build orders before, replace them with methods and attributes belonging to this class.
+- [ ]Every Order should have a uuid
+- [ ]Every Order should have an add_item method that takes an item name and a quantity as arguments. There should be a default value for quantity if none is given.
+- [ ]Every Order should have a remove_item method that takes an item name and a quantity as arguments. There should be a default value for quantity if none is given.
+- [ ]Every Order should have a display_order() method that prints the user’s current order to the console
+- [ ]Every Order should have a print_receipt() method that creates a file containing the text of the user’s full order. The file name should be of the format order-<the uuid>.txt and should have the same output as display_order
+- [ ]All of the order input-checking that you used to do will be done by this class
+- [ ]The repr of Order instances should look like <Order #ba99d8... | Items: 4 | Total: $754.23>
+- [ ]When print() is called on an order instance, the user’s current order is printed as if display_order was called.
+- [ ]When len() is called on an order instance, the number of items in the order is returned
+- [ ]You may have as many helper methods as you want. However, make sure that any attributes and methods that aren’t intended for public use are prefixed with a - [ ]single underscore
+- [ ]All of your methods should be narrow in scope
+- [ ]Every bit of functionality that you add should be tested.
+- [ ]As a general rule at this time, you should have a test for valid, invalid, and edge case variants for every function that you define. There are exceptions. The exceptions are not the rule.
 
 ## Change Log
 
@@ -55,6 +70,9 @@ snakes-cafe
 - Attempted some testing with no sucess.
 - Created file.io.py to test csv access and parsing.
 - Sucessfully able to add csv parsed data to list.
+- Commiting to create new branch.
+- Created new branch class-04-objects.
+- Sucessfully parsed data from CSV file to list of dictonaries.
 
 ### 2018-08-15
 - Got test file linked and working properly.
