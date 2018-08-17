@@ -83,25 +83,27 @@ def message():
 def manual():
   """Prints a help screen to guide a user with possible commands and options.
   """
-  ln_zero = 'Manual'
-  ln_one = 'Type "menue" to re-print the entire menue.'
-  ln_two = 'Type "Category" to bring up a list of category options.'
-  ln_three = 'Type the name of the category to see the menue items in that category.'
-  ln_four = 'Type the name of the menue item you would like to add to the order.'
-  ln_five = 'type "order" to print current order to screen.'
-  ln_six = 'If you would like to load a custom csv file type "load" "file_path"'
-  ln_seven = 'At any time you can type "quit" or "exit" to stop the application.'
+  ln_title = 'Manual'
+  ln_menue = 'Type "menue" to re-print the entire menue.'
+  ln_category = 'Type "Category" to bring up a list of category options.'
+  ln_category_2 = 'Type the name of the category to see the menue items in that category.'
+  ln_menue_item = 'Type the name of the menue item you would like to add to the order.'
+  ln_menue_item_2 = ' you can also select an ammount by typing numerical ammount after your order choice.'
+  ln_order = 'type "order" to print current order to screen.'
+  ln_load = 'If you would like to load a custom csv file type "load" "file_path"'
+  ln_quit = 'At any time you can type "quit" or "exit" to stop the application.'
 
   print(dedent(f'''
-    {ln_zero}
-    {'-' * len(ln_zero)}
-    {ln_one}
-    {ln_two}
-    {ln_three}
-    {ln_four}
-    {ln_five}
-    {ln_six}
-    {ln_seven}
+    {ln_title}
+    {'-' * len(ln_title)}
+    {ln_menue}
+    {ln_category}
+    {ln_category_2}
+    {ln_menue_item}
+    {ln_menue_item_2}
+    {ln_order}
+    {ln_load}
+    {ln_quit}
   '''))
 
 
@@ -144,12 +146,12 @@ def complete():
   '''))
 
 
-def add_menue_item(order, menue):
+def add_menue_item(order, menue, quantity):
   """Adds a selected item to the current order and iterates it in the dictonary.
   Prints out current total.
   """
   price = "%.2f" % round(float(menue['price']),2)
-  menue['order'] = menue['order'] + 1
+  menue['order'] = menue['order'] + quantity
   print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
   global TOTAL
   TOTAL = float(price) + TOTAL
@@ -226,14 +228,16 @@ def run():
         print('')
         VALID = True
         break
-    # if (order.rsplit(' ', 1)[1]):
-    if True == True:
-      # print(order.rsplit(' ', 1)[1])
-      # order = order.rsplit(' ', 1)[0]
-      for menue in MENUE:
-        if order == menue['item']:
-          VALID = True
-          add_menue_item(order, menue)
+    for menue in MENUE:
+      if (len(order.split()) > 1) and order.rsplit(' ', 1)[0] == menue['item']:
+        quantity = int(order.rsplit(' ', 1)[1])
+        order = order.rsplit(' ', 1)[0]
+        print('multi: ' + order + 'q: ' + str(quantity))
+        VALID = True
+        add_menue_item(order, menue, quantity)
+      elif order == menue['item']:
+        VALID = True
+        add_menue_item(order, menue, 1)
     if order.split(' ', 1)[0] == 'remove':
       order = order.split(' ', 1)[1]
       for menue in MENUE:

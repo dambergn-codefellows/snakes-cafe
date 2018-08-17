@@ -5,7 +5,8 @@ snakes-cafe
 - Version 1.2.0
 
 # Use
-- when you start the program will will be greeted and a list of menue items will be presented.
+- when you start the program select which menu you want by typing "breakfast" or "dinner", Defaults to dinner.
+- to select a new menu type load then the path and file name.
 - at any time you can exit the application by typing "quit".
 - add a item from the menue to the meal order by typing its name.
 - if you need to see the list of a specific category type the category name and it will re-print on screen.
@@ -38,8 +39,8 @@ snakes-cafe
 - [X]Add to your snakes-cafe project the option to provide a separate file as a menu with the appropriate help text (see Lecture 01). If this option isn’t used, the menu you’ve been building all week will be used.
 - [X]The optional separate menu must be a comma-separated value (.csv) file, where each row includes the menu item’s name (str), category (str), price (float), and quantity (int) referring to the in-stock amount of that item.
 - [X]If the provided separate menu file isn’t a CSV file, alert the user with an appropriate error message. Note: the user should never see an actual Python Exception
-- [ ]When the user adds an item to their order, they should have the option of providing the quantity as well.
-- [ ]If they don’t provide the quantity, a quantity of 1 is assumed.
+- [X]When the user adds an item to their order, they should have the option of providing the quantity as well.
+- [X]If they don’t provide the quantity, a quantity of 1 is assumed.
 - [ ]If the quantity they provide is invalid (negative or not a number), alert the user with an appropriate error message
 - [ ]If the quantity they provide is beyond whatever is left in stock, alert the user with an appropriate error message.
 - [ ]If the user tries to add/remove an item that isn’t on whatever menu has been loaded, alert the user with an appropriate error message
@@ -69,11 +70,13 @@ snakes-cafe
 ### 2018-08-17
 - Modified README.md to reflect versioning.
 - Removed duplicate assets folder.
+- Refactored manual.
+- Added ability for user to select an ammount to add to order.
 
 ### 2018-08-16
 - Updated all functions with descriptions.
 - Added KeyboardInterrupt to handle CTRL+C
-- Added quantity to dictionarry.
+- Added quantity to dictionary.
 - Changed quantity to inventory.
 - Changes to menue and menue.csv
 - Attempted some testing with no sucess.
