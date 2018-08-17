@@ -442,7 +442,3 @@ if __name__ == '__main__':
     run()
   except KeyboardInterrupt:
     exit()
-
-
-def test():
-  return True
