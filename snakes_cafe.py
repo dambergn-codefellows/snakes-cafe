@@ -9,7 +9,7 @@ VALID = False
 TAX_RATE = float('.096')
 TOTAL = float('0')
 CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
-BANK = [
+MENUE = [
   {
     'category': 'desserts',
     'item': 'brownie',
@@ -278,7 +278,7 @@ def list_category(category):
   print(dedent(f'''
     {category}
     {'-' * len(category)}'''))
-  for menue in BANK:
+  for menue in MENUE:
     item = menue['item']
     price = "%.2f" % round(float(menue['price']),2)
     space = (' ' * (WIDTH - (len(item) + len(str(price)) + 2)))
@@ -341,7 +341,7 @@ def complete():
   {'Order: ' + str(uuid4())}
   {'=' * WIDTH}'''))
   subtotal = float('0')
-  for menue in BANK:
+  for menue in MENUE:
     item = menue['item']
     order = menue['order']
     price = str("%.2f" % round(float(menue['order']) * float(menue['price']),2))
@@ -411,19 +411,19 @@ def run():
       VALID = True
       for key in CATEGORIES:
         list_category(key)
-    for menue in BANK:
+    for menue in MENUE:
       if order == menue['category']:
         list_category(order)
         print('')
         VALID = True
         break
-    for menue in BANK:
+    for menue in MENUE:
       if order == menue['item']:
         VALID = True
         add_menue_item(order, menue)
     if order.split(' ', 1)[0] == 'remove':
       order = order.split(' ', 1)[1]
-      for menue in BANK:
+      for menue in MENUE:
         if order == menue['item']:
           VALID = True
           remove_menue_item(order, menue)
