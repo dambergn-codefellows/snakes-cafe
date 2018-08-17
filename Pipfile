@@ -4,9 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
+pylint = "*"
 
 [packages]
 pytest = "*"
+uuid = "*"
 
 [requires]
-python_version = "2.7"
+python_version = "3.6"

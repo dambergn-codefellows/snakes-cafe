@@ -1,223 +1,37 @@
 from textwrap import dedent
-
+from uuid import uuid4
+# import pdb; pdb.set_trace()
+# type n for next
 
 WIDTH = 80
 ORDER_COMPLETE = False
+VALID = False
 TAX_RATE = float('.096')
 TOTAL = float('0')
 CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
-BANK = [
-  {
-    'category': 'desserts',
-    'item': 'brownie',
-    'ammount': 1,
-    'price': 1.95,
-    'order': 0,
-  },
-  {
-    'category': 'desserts',
-    'item': 'pudding',
-    'ammount': 1,
-    'price': 2.50,
-    'order': 0,
-  },
-  {
-    'category': 'desserts',
-    'item': 'cream and fruit',
-    'ammount': 1,
-    'price': 5.5,
-    'order': 0,
-  },
-  {
-    'category': 'drinks',
-    'item': 'pop',
-    'ammount': 1,
-    'price': 2.5,
-    'order': 0,
-  },
-  {
-    'category': 'drinks',
-    'item': 'lemonade',
-    'ammount': 1,
-    'price': 1.5,
-    'order': 0,
-  },
-  {
-    'category': 'drinks',
-    'item': 'milk shake',
-    'ammount': 1,
-    'price': 5.59,
-    'order': 0,
-  },
-  {
-    'category': 'sides',
-    'item': 'french fries',
-    'ammount': 1,
-    'price': 3.5,
-    'order': 0,
-  },
-  {
-    'category': 'sides',
-    'item': 'asparagus',
-    'ammount': 1,
-    'price': 3.75,
-    'order': 0,
-  },
-  {
-    'category': 'sides',
-    'item': 'pig strips',
-    'ammount': 1,
-    'price': 4.25,
-    'order': 0,
-  },
-  {
-    'category': 'entrees',
-    'item': 'creature of unknown origin',
-    'ammount': 1,
-    'price': 25.95,
-    'order': 0,
-  },
-  {
-    'category': 'entrees',
-    'item': 'tortured baby cow',
-    'ammount': 1,
-    'price': 16.25,
-    'order': 0,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'spinach artichoke dip',
-    'ammount': 1,
-    'price': 4.25,
-    'order': 0,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'jalapeno poppers',
-    'ammount': 1,
-    'price': 3.5,
-    'order': 0,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'mozzarella sticks',
-    'ammount': 1,
-    'price': 3.5,
-    'order': 0,
-  },
-  {
-    'category': 'sides',
-    'item': 'corn on the cob',
-    'ammount': 1,
-    'price': 3.25,
-    'order': 0,
-  },
-  {
-    'category': 'sides',
-    'item': 'garlic mashed potatoes',
-    'ammount': 1,
-    'price': 3.25,
-    'order': 0,
-  },
-  {
-    'category': 'sides',
-    'item': 'broccoli',
-    'ammount': 6,
-    'price': 3,
-    'order': 0,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'wings',
-    'ammount': 6,
-    'price': 3,
-    'order': 0,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'cookies',
-    'ammount': 3,
-    'price': 1.5,
-    'order': 0,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'spring rolls',
-    'ammount': 4,
-    'price': 2,
-    'order': 0,
-  },
-  {
-    'category': 'entrees',
-    'item': 'salmon',
-    'ammount': 1,
-    'price': 15,
-    'order': 0,
-  },
-  {
-    'category': 'entrees',
-    'item': 'steak',
-    'ammount': 1,
-    'price': 18,
-    'order': 0,
-  },
-  {
-    'category': 'entrees',
-    'item': 'meat tornado',
-    'ammount': 1,
-    'price': 13,
-    'order': 0,
-  },
-  {
-    'category': 'entrees',
-    'item': 'a little garden',
-    'ammount': 1,
-    'price': 3.5,
-    'order': 0,
-  },
-  {
-    'category': 'desserts',
-    'item': 'ice cream',
-    'ammount': 1,
-    'price': 2.5,
-    'order': 0,
-  },
-  {
-    'category': 'desserts',
-    'item': 'cake',
-    'ammount': 1,
-    'price': 2.5,
-    'order': 0,
-  },
-  {
-    'category': 'desserts',
-    'item': 'pie',
-    'ammount': 1,
-    'price': 2.50,
-    'order': 0,
-  },
-  {
-    'category': 'drinks',
-    'item': 'coffee',
-    'ammount': 1,
-    'price': .75,
-    'order': 0,
-  },
-  {
-    'category': 'drinks',
-    'item': 'tea',
-    'ammount': 1,
-    'price': .75,
-    'order': 0,
-  },
-  {
-    'category': 'drinks',
-    'item': 'blood of the innocent',
-    'ammount': 1,
-    'price': 6.66,
-    'order': 0,
-  },
-]
+MENUE = []
+
+
+def getMenue(file_path):
+  '''Parses data from csv file and builds menue dictonarry.
+  '''
+  parsedCSV = []
+  try:
+    with open(file_path, 'r') as rf:
+      for line in rf:
+        new_line = line.replace('\n', ' ').split(',')
+        parsedCSV.append(new_line)
+  except(FileNotFoundError, TypeError) as e:
+    print('file not found')
+    
+  for dictonary in range(2,len(parsedCSV)):
+    MENUE.append(
+    {parsedCSV[1][0] : parsedCSV[dictonary][0], 
+    parsedCSV[1][1] : parsedCSV[dictonary][1], 
+    parsedCSV[1][2] : int(parsedCSV[dictonary][2]), 
+    parsedCSV[1][3] : float(parsedCSV[dictonary][3]), 
+    parsedCSV[1][4] : int(parsedCSV[dictonary][4]), 
+    parsedCSV[1][5] : int(parsedCSV[dictonary][5])})
 
 
 def greeting():
@@ -236,14 +50,16 @@ def greeting():
     {'**' + (' ' * (WIDTH - 4)) + '**'}
     {'**' + (' ' * (((WIDTH - 4) - len(ln_three)) // 2)) + ln_three + (' ' * (((WIDTH - 4) - len(ln_three)) // 2)) + '**'}
     {'*' * WIDTH}
-  '''))
+    '''))
 
 
-def List_Category(category):
+def list_category(category):
+  """Prints out menue items within a catagory.
+  """
   print(dedent(f'''
     {category}
     {'-' * len(category)}'''))
-  for menue in BANK:
+  for menue in MENUE:
     item = menue['item']
     price = "%.2f" % round(float(menue['price']),2)
     space = (' ' * (WIDTH - (len(item) + len(str(price)) + 2)))
@@ -251,22 +67,30 @@ def List_Category(category):
       print(dedent(f'''{item + space + ' $' + str(price)}'''))
 
 
-def Message():
-  ln_message = 'What would you like to order?'
+def message():
+  """Message that prints out after the menue on program start.
+  """
+  ln_tip = 'Type "help" to see a list of options'
+  ln_message = 'Choose if you would like the "breakfast" or "dinner" menue'
   print(dedent(f'''
     {'*' * WIDTH}
-    {'**' + (' ' * (((WIDTH - 2) - len(ln_message)) // 2)) + ln_message + (' ' * (((WIDTH - 4) - len(ln_message)) // 2)) + '**'}
+    {'**' + (' ' * (((WIDTH - 2) - len(ln_tip)) // 2)) + ln_tip + (' ' * (((WIDTH - 6) - len(ln_tip)) // 2)) + '**'}
+    {'**' + (' ' * (((WIDTH - 2) - len(ln_message)) // 2)) + ln_message + (' ' * (((WIDTH - 6) - len(ln_message)) // 2)) + '**'}
     {'*' * WIDTH}
   '''))
 
 
-def Manual():
+def manual():
+  """Prints a help screen to guide a user with possible commands and options.
+  """
   ln_zero = 'Manual'
-  ln_one = 'Type "Category" to bring up a list of category options.'
-  ln_two = 'Type the name of the category to see the menue items in that category.'
-  ln_three = 'Type the name of the menue item you would like to add to the order.'
-  ln_five = 'At any time you can type "quit" or "exit" to stop the application.'
-  ln_four = 'type "order" to print current order to screen.'
+  ln_one = 'Type "menue" to re-print the entire menue.'
+  ln_two = 'Type "Category" to bring up a list of category options.'
+  ln_three = 'Type the name of the category to see the menue items in that category.'
+  ln_four = 'Type the name of the menue item you would like to add to the order.'
+  ln_five = 'type "order" to print current order to screen.'
+  ln_six = 'If you would like to load a custom csv file type "load" "file_path"'
+  ln_seven = 'At any time you can type "quit" or "exit" to stop the application.'
 
   print(dedent(f'''
     {ln_zero}
@@ -276,25 +100,31 @@ def Manual():
     {ln_three}
     {ln_four}
     {ln_five}
+    {ln_six}
+    {ln_seven}
   '''))
 
 
 def exit():
+  """exits the programs and prints a goodbye message.
+  """
   print(dedent(f'''
   Thank you for using snakes cafe!
   '''))
   #sys.exit()
 
 def complete():
+  """Prints out a recipt for the current order status.
+  """
   print(dedent(f'''
   {'_' * WIDTH}
   {'The Snakes Cafe'}
   {"Eatability Counts"}
   {''}
-  {'Order: UUID-TBD'}
+  {'Order: ' + str(uuid4())}
   {'=' * WIDTH}'''))
   subtotal = float('0')
-  for menue in BANK:
+  for menue in MENUE:
     item = menue['item']
     order = menue['order']
     price = str("%.2f" % round(float(menue['order']) * float(menue['price']),2))
@@ -314,42 +144,114 @@ def complete():
   '''))
 
 
+def add_menue_item(order, menue):
+  """Adds a selected item to the current order and iterates it in the dictonary.
+  Prints out current total.
+  """
+  price = "%.2f" % round(float(menue['price']),2)
+  menue['order'] = menue['order'] + 1
+  print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
+  global TOTAL
+  TOTAL = float(price) + TOTAL
+  print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+
+
+def remove_menue_item(order, menue):
+  """Removes a selected item to the current order and iterates it in the dictonary.
+  Prints out current total.
+  """
+  price = "%.2f" % round(float(menue['price']),2)
+  menue['order'] = menue['order'] - 1
+  print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been removed from your meal.')
+  global TOTAL
+  TOTAL = TOTAL - float(price)
+  print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+
+
+def select_menue(order):
+  '''Selects which menue to use and prints it to the screen.
+  '''
+  getMenue(order)
+  print_menue()
+
+
+def print_menue():
+  '''Prints out the entire menue to screen.
+  '''
+  for key in CATEGORIES:
+      list_category(key)
+
+
+def load_custom_menue(file_path):
+  del MENUE[:]
+  getMenue(file_path)
+  print_menue()
+
 
 def run():
+  """Main function to check and pass user input.
+  """
   greeting()
-  for key in CATEGORIES:
-    List_Category(key)
-  Message()
+  message()
   while ORDER_COMPLETE == False:
+    global VALID
+    VALID = False
     order = input().lower()
     if order == 'quit' or order == 'exit':
       exit()
       return
+    elif (len(MENUE) == 0 and order == "") or (order == 'breakfast' or order == 'dinner'):
+      if order == "":
+        order = 'dinner'
+      VALID = True
+      select_menue('./assets/menue_' + order + '.csv')
     elif order == 'man' or order == 'help':
-      Manual()
-    for menue in BANK:
-      if order == menue['category']:
-        List_Category(order)
-        print('')
-        break
-    if order == 'category':
+      VALID = True
+      manual()
+    elif order.split(' ', 1)[0] == 'load':
+      VALID = True
+      order = order.split(' ', 1)[1]
+      load_custom_menue(order)
+    elif order == 'category':
+      VALID = True
       print('-' * len(order))
       for key in CATEGORIES:
         print(key)
-    for menue in BANK:
-      price = "%.2f" % round(float(menue['price']),2)
-      if order == menue['item']:
-        menue['order'] = menue['order'] + 1
-        print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
-        global TOTAL
-        TOTAL = float(price) + TOTAL
-        print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
-      elif order == 'order':
-        complete()
+    elif order == 'menue':
+      VALID = True
+      print_menue()
+    for menue in MENUE:
+      if order == menue['category']:
+        list_category(order)
+        print('')
+        VALID = True
         break
-      else:
-        next
+    # if (order.rsplit(' ', 1)[1]):
+    if True == True:
+      # print(order.rsplit(' ', 1)[1])
+      # order = order.rsplit(' ', 1)[0]
+      for menue in MENUE:
+        if order == menue['item']:
+          VALID = True
+          add_menue_item(order, menue)
+    if order.split(' ', 1)[0] == 'remove':
+      order = order.split(' ', 1)[1]
+      for menue in MENUE:
+        if order == menue['item']:
+          VALID = True
+          remove_menue_item(order, menue)
+    if order == 'order':
+      VALID = True
+      complete()
+      continue
+    if VALID is False or order == "":
+      print('That is not a valid selection please type "help" to see options.')
+    else:
+      next
 
 
 if __name__ == '__main__':
-  run()
+  try:
+    run()
+  except KeyboardInterrupt:
+    exit()
