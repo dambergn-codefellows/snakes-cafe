@@ -181,7 +181,6 @@ def run():
   """Main function to check and pass user input.
   """
   greeting()
-  
   message()
   while ORDER_COMPLETE == False:
     global VALID
@@ -190,7 +189,9 @@ def run():
     if order == 'quit' or order == 'exit':
       exit()
       return
-    elif order == 'breakfast' or order == 'dinner':
+    elif (len(MENUE) == 0 and order == "") or (order == 'breakfast' or order == 'dinner'):
+      if order == "":
+        order = 'dinner'
       VALID = True
       select_menue(order)
     elif order == 'man' or order == 'help':
@@ -224,7 +225,7 @@ def run():
       VALID = True
       complete()
       continue
-    if VALID is False:
+    if VALID is False or order == "":
       print('That is not a valid selection please type "help" to see options.')
     else:
       next
