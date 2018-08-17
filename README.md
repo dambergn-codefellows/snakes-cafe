@@ -52,6 +52,9 @@ snakes-cafe
 - Added quantity to dictionarry.
 - Changed quantity to inventory.
 - Changes to menue and menue.csv
+- Attempted some testing with no sucess.
+- Created file.io.py to test csv access and parsing.
+- Sucessfully able to add csv parsed data to list.
 
 ### 2018-08-15
 - Got test file linked and working properly.
