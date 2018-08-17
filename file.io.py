@@ -1,11 +1,12 @@
 def getMenue():
   parsedCSV = []
   menue = []
-  with open('./assets/menue.csv', 'r') as rf:
+  with open('./assets/menue_breakfast.csv', 'r') as rf:
     for line in rf:
       new_line = line.replace('\n', ' ').split(',')
       parsedCSV.append(new_line)
-
+    
+  menue.append({})
   for dictonary in range(2,len(parsedCSV)):
     menue.append(
     {parsedCSV[1][0] : parsedCSV[dictonary][0], 

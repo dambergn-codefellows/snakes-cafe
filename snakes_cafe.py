@@ -9,248 +9,27 @@ VALID = False
 TAX_RATE = float('.096')
 TOTAL = float('0')
 CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
-MENUE = [
-  {
-    'category': 'desserts',
-    'item': 'brownie',
-    'ammount': 1,
-    'price': 1.95,
-    'order': 0,
-    'inventory': 6,
-  },
-  {
-    'category': 'desserts',
-    'item': 'pudding',
-    'ammount': 1,
-    'price': 2.50,
-    'order': 0,
-    'inventory': 6,
-  },
-  {
-    'category': 'desserts',
-    'item': 'cream and fruit',
-    'ammount': 1,
-    'price': 5.5,
-    'order': 0,
-    'inventory': 3,
-  },
-  {
-    'category': 'drinks',
-    'item': 'pop',
-    'ammount': 1,
-    'price': 2.5,
-    'order': 0,
-    'inventory': 100,
-  },
-  {
-    'category': 'drinks',
-    'item': 'lemonade',
-    'ammount': 1,
-    'price': 1.5,
-    'order': 0,
-    'inventory': 100,
-  },
-  {
-    'category': 'drinks',
-    'item': 'milk shake',
-    'ammount': 1,
-    'price': 5.59,
-    'order': 0,
-    'inventory': 8,
-  },
-  {
-    'category': 'sides',
-    'item': 'french fries',
-    'ammount': 1,
-    'price': 3.5,
-    'order': 0,
-    'inventory': 7,
-  },
-  {
-    'category': 'sides',
-    'item': 'asparagus',
-    'ammount': 1,
-    'price': 3.75,
-    'order': 0,
-    'inventory': 4,
-  },
-  {
-    'category': 'sides',
-    'item': 'pig strips',
-    'ammount': 1,
-    'price': 4.25,
-    'order': 0,
-    'inventory': 3,
-  },
-  {
-    'category': 'entrees',
-    'item': 'creature of unknown origin',
-    'ammount': 1,
-    'price': 25.95,
-    'order': 0,
-    'inventory': 1,
-  },
-  {
-    'category': 'entrees',
-    'item': 'tortured baby cow',
-    'ammount': 1,
-    'price': 16.25,
-    'order': 0,
-    'inventory': 4,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'spinach artichoke dip',
-    'ammount': 1,
-    'price': 4.25,
-    'order': 0,
-    'inventory': 6,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'jalapeno poppers',
-    'ammount': 6,
-    'price': 3.5,
-    'order': 0,
-    'inventory': 24,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'mozzarella sticks',
-    'ammount': 4,
-    'price': 3.5,
-    'order': 0,
-    'inventory': 16,
-  },
-  {
-    'category': 'sides',
-    'item': 'corn on the cob',
-    'ammount': 1,
-    'price': 3.25,
-    'order': 0,
-    'inventory': 3,
-  },
-  {
-    'category': 'sides',
-    'item': 'garlic mashed potatoes',
-    'ammount': 1,
-    'price': 3.25,
-    'order': 0,
-    'inventory': 10,
-  },
-  {
-    'category': 'sides',
-    'item': 'broccoli',
-    'ammount': 6,
-    'price': 3,
-    'order': 0,
-    'inventory': 48,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'wings',
-    'ammount': 6,
-    'price': 3,
-    'order': 0,
-    'inventory': 48,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'cookies',
-    'ammount': 3,
-    'price': 1.5,
-    'order': 0,
-    'inventory': 9,
-  },
-  {
-    'category': 'appetizers',
-    'item': 'spring rolls',
-    'ammount': 4,
-    'price': 2,
-    'order': 0,
-    'inventory': 400,
-  },
-  {
-    'category': 'entrees',
-    'item': 'salmon',
-    'ammount': 1,
-    'price': 15,
-    'order': 0,
-    'inventory': 3,
-  },
-  {
-    'category': 'entrees',
-    'item': 'steak',
-    'ammount': 1,
-    'price': 18,
-    'order': 0,
-    'inventory': 2,
-  },
-  {
-    'category': 'entrees',
-    'item': 'meat tornado',
-    'ammount': 1,
-    'price': 13,
-    'order': 0,
-    'inventory': 4,
-  },
-  {
-    'category': 'entrees',
-    'item': 'a little garden',
-    'ammount': 1,
-    'price': 3.5,
-    'order': 0,
-    'inventory': 6,
-  },
-  {
-    'category': 'desserts',
-    'item': 'ice cream',
-    'ammount': 1,
-    'price': 2.5,
-    'order': 0,
-    'inventory': 6,
-  },
-  {
-    'category': 'desserts',
-    'item': 'cake',
-    'ammount': 1,
-    'price': 2.5,
-    'order': 0,
-    'inventory': 6,
-  },
-  {
-    'category': 'desserts',
-    'item': 'pie',
-    'ammount': 1,
-    'price': 2.50,
-    'order': 0,
-    'inventory': 6,
-  },
-  {
-    'category': 'drinks',
-    'item': 'coffee',
-    'ammount': 1,
-    'price': .75,
-    'order': 0,
-    'inventory': 100,
-  },
-  {
-    'category': 'drinks',
-    'item': 'tea',
-    'ammount': 1,
-    'price': .75,
-    'order': 0,
-    'inventory': 100,
-  },
-  {
-    'category': 'drinks',
-    'item': 'blood of the innocent',
-    'ammount': 1,
-    'price': 6.66,
-    'order': 0,
-    'inventory': 100,
-  },
-]
+MENUE = []
+
+
+def getMenue(which_menue):
+  '''Parses data from csv file and builds menue dictonarry.
+  '''
+  parsedCSV = []
+  with open('./assets/menue_' + which_menue + '.csv', 'r') as rf:
+    for line in rf:
+      new_line = line.replace('\n', ' ').split(',')
+      parsedCSV.append(new_line)
+    
+  for dictonary in range(2,len(parsedCSV)):
+    MENUE.append(
+    {parsedCSV[1][0] : parsedCSV[dictonary][0], 
+    parsedCSV[1][1] : parsedCSV[dictonary][1], 
+    parsedCSV[1][2] : parsedCSV[dictonary][2], 
+    parsedCSV[1][3] : parsedCSV[dictonary][3], 
+    parsedCSV[1][4] : parsedCSV[dictonary][4], 
+    parsedCSV[1][5] : parsedCSV[dictonary][5]})
+getMenue('breakfast')
 
 
 def greeting():
@@ -290,11 +69,11 @@ def message():
   """Message that prints out after the menue on program start.
   """
   ln_tip = 'Type "help" to see a list of options'
-  ln_message = 'What would you like to order?'
+  ln_message = 'Choose if you would like the "breakfast" or "dinner" menue'
   print(dedent(f'''
     {'*' * WIDTH}
     {'**' + (' ' * (((WIDTH - 2) - len(ln_tip)) // 2)) + ln_tip + (' ' * (((WIDTH - 6) - len(ln_tip)) // 2)) + '**'}
-    {'**' + (' ' * (((WIDTH - 2) - len(ln_message)) // 2)) + ln_message + (' ' * (((WIDTH - 4) - len(ln_message)) // 2)) + '**'}
+    {'**' + (' ' * (((WIDTH - 2) - len(ln_message)) // 2)) + ln_message + (' ' * (((WIDTH - 6) - len(ln_message)) // 2)) + '**'}
     {'*' * WIDTH}
   '''))
 
@@ -385,12 +164,18 @@ def remove_menue_item(order, menue):
   print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
 
 
+def print_menue():
+  '''Prints out the entire menue to screen.
+  '''
+  for key in CATEGORIES:
+      list_category(key)
+
+
 def run():
   """Main function to check and pass user input.
   """
   greeting()
-  for key in CATEGORIES:
-    list_category(key)
+  
   message()
   while ORDER_COMPLETE == False:
     global VALID
@@ -409,8 +194,7 @@ def run():
         print(key)
     elif order == 'menue':
       VALID = True
-      for key in CATEGORIES:
-        list_category(key)
+      print_menue()
     for menue in MENUE:
       if order == menue['category']:
         list_category(order)

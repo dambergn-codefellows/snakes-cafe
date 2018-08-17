@@ -74,6 +74,7 @@ snakes-cafe
 - Created new branch class-04-objects.
 - Sucessfully parsed data from CSV file to list of dictonaries.
 - Refactored code in snakes_cafe from BANK to MENUE.
+- Menue is now created from CSV file, need to create on start select for breakfast or dinner.
 
 ### 2018-08-15
 - Got test file linked and working properly.

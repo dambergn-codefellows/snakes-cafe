@@ -1,2 +1,17 @@
 appetizers,entrees,sides,drinks,desserts
 category,item,ammount,price,order,inventory
+appetizers,fruit cup,1,1.50,0,5
+appetizers,cottage cheese,1,1.75,0,5
+appetizers,yogurt,1,2.0,0,10
+entrees,buiskets and gravy,2,8.50,0,5
+entrees,omlet,1,8.75,0,5
+entrees,belgin waffle,1,9.20,0,5
+sides,pancakes,2,2.50,0,10
+sides,sausage,3,2.75,0,15
+sides,bacon,2,3.15,0,10
+drinks,orange juice,1,3.15,0,5
+drinks,milk,1,2.75,0,5
+drinks,coffee,1,.75,0,5
+desserts,cheese cake,1,2.5,0,5
+desserts,pudding,1,1.5,0,5
+desserts,cream and fruit,1,2,0,5
