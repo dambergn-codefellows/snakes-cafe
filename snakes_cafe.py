@@ -284,7 +284,6 @@ def list_category(category):
     space = (' ' * (WIDTH - (len(item) + len(str(price)) + 2)))
     if category == menue['category']:
       print(dedent(f'''{item + space + ' $' + str(price)}'''))
-  return item + ' $' + str(price)
 
 
 def message():

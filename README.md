@@ -51,6 +51,7 @@ snakes-cafe
 - Added KeyboardInterrupt to handle CTRL+C
 - Added quantity to dictionarry.
 - Changed quantity to inventory.
+- Changes to menue and menue.csv
 
 ### 2018-08-15
 - Got test file linked and working properly.
