@@ -226,10 +226,14 @@ def run():
         print('')
         VALID = True
         break
-    for menue in MENUE:
-      if order == menue['item']:
-        VALID = True
-        add_menue_item(order, menue)
+    # if (order.rsplit(' ', 1)[1]):
+    if True == True:
+      # print(order.rsplit(' ', 1)[1])
+      # order = order.rsplit(' ', 1)[0]
+      for menue in MENUE:
+        if order == menue['item']:
+          VALID = True
+          add_menue_item(order, menue)
     if order.split(' ', 1)[0] == 'remove':
       order = order.split(' ', 1)[1]
       for menue in MENUE:
