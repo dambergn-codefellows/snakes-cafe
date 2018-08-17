@@ -68,6 +68,7 @@ snakes-cafe
 
 ### 2018-08-17
 - Modified README.md to reflect versioning.
+- Removed duplicate assets folder.
 
 ### 2018-08-16
 - Updated all functions with descriptions.
