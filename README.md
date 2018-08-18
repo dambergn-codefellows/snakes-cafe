@@ -80,6 +80,7 @@ snakes-cafe
 - Fixed CSV parser to accomidate int and float values.
 - Menu now defaults to dinner if nothing is selected.
 - Added ability for user to manually select and load a csv file.
+- Commiting and pushing where I am currently at.
 
 ### 2018-08-15
 - Got test file linked and working properly.
