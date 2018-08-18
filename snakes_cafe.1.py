@@ -156,36 +156,20 @@ def add_menue_item(order, menue, quantity):
   """
   try:
     if int(quantity) < 1:
-      print('add_menue_item: ' + str(quantity))
-      return 'not a positive number'
-      # print('Please enter a number of 1 or greater.')
+      print('Please enter a number of 1 or greater.')
     elif int(quantity) > menue['inventory']:
-      return 'no inventory'
-      # print('We do not currently have enough of that item is stock.')
-      # print('Current stock: ' + str(menue['inventory']))
+      print('We do not currently have enough of that item is stock.')
+      print('Current stock: ' + str(menue['inventory']))
     else:
       price = "%.2f" % round(float(menue['price']),2)
       menue['order'] = menue['order'] + int(quantity)
       menue['inventory'] = menue['inventory'] - int(menue['ammount'] * quantity)
-      # print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
+      print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
       global TOTAL
       TOTAL = (float(price) * int(quantity)) + TOTAL
-      # print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
-      return (price, TOTAL)
+      print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
   except ValueError:
     print('Please enter a number of 1 or greater')
-
-
-def print_add_menue_item(order, menue, quantity):
-  add_menue_item(order, menue, quantity)
-  if 'not a positive number':
-    print('Please enter a number of 1 or greater: ' + str(quantity))
-  elif 'no inventory':
-    print('We do not currently have enough of that item is stock.')
-    print('Current stock: ' + str(menue['inventory']))
-  else:
-    print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
-    print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
 
 
 def remove_menue_item(order, menue, quantity):
@@ -273,12 +257,10 @@ def run():
         order = order.rsplit(' ', 1)[0]
         # print('multi: ' + order + 'q: ' + quantity)
         VALID = True
-        print_add_menue_item(order, menue, quantity)
-        # add_menue_item(order, menue, quantity)
+        add_menue_item(order, menue, quantity)
       elif order == menue['item']:
         VALID = True
-        print_add_menue_item(order, menue, 1)
-        # add_menue_item(order, menue, 1)
+        add_menue_item(order, menue, 1)
     if order.split(' ', 1)[0] == 'remove':
       order = order.split(' ', 1)[1]
       for menue in MENUE:

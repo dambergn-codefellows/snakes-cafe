@@ -73,6 +73,7 @@ snakes-cafe
 - When items are added or removed the inventory is updated.
 - If there is not enough of an avialable item the user is notified.
 - Fixed bug with current total when adding or removing items.
+- Pushing current attempts at testing.
 
 ### 2018-08-17
 - Modified README.md to reflect versioning.

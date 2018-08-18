@@ -1,4 +1,4 @@
-from snakes_cafe import greeting, list_category, message, manual, exit, complete, add_menue_item, remove_menue_item, select_menue, print_menue, load_custom_menue, get_menue
+from snakes_cafe import greeting, list_category, message, manual, exit, current_order, add_menue_item, remove_menue_item, select_menue, print_menue, load_custom_menue, get_menue
 import sys
 # import pytest
 # lookup standard out / standard in
@@ -24,8 +24,8 @@ def test_exit_exists():
     assert exit
 
 
-def test_complete_exists():
-    assert complete
+def test_current_order_exists():
+    assert current_order
 
 
 def test_add_menue_item_exists():
@@ -34,10 +34,10 @@ def test_add_menue_item_exists():
 def test_get_menue_exists():
     assert get_menue
 
-def test_get_menue_object():
-    select_menue('./assets/menue_dinner.csv')
-    expected = (MENUE == object)
-    assert expected == True
+# def test_get_menue_object():
+#     select_menue('./assets/menue_dinner.csv')
+#     expected = (MENUE == object)
+#     assert expected == True
 
 def test_remove_menue_item_exists():
     assert remove_menue_item
