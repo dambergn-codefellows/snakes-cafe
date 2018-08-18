@@ -2,7 +2,7 @@
 snakes-cafe
 
 # Version
-- Version 1.2.0
+- Version 1.3.0
 
 # Use
 - when you start the program select which menu you want by typing "breakfast" or "dinner", Defaults to dinner.
@@ -42,10 +42,10 @@ snakes-cafe
 - [X]When the user adds an item to their order, they should have the option of providing the quantity as well.
 - [X]If they don’t provide the quantity, a quantity of 1 is assumed.
 - [X]If the quantity they provide is invalid (negative or not a number), alert the user with an appropriate error message
-- [ ]If the quantity they provide is beyond whatever is left in stock, alert the user with an appropriate error message.
-- [ ]If the user tries to add/remove an item that isn’t on whatever menu has been loaded, alert the user with an appropriate error message
-- [ ]If the user tries to remove an item that isn’t a part of their order, alert the user with an appropriate error message
-- [ ]No matter what, the user should never see a traceback. Not even for a Keyboard Interrupt.
+- [X]If the quantity they provide is beyond whatever is left in stock, alert the user with an appropriate error message.
+- [X]If the user tries to add/remove an item that isn’t on whatever menu has been loaded, alert the user with an appropriate error message
+- [X]If the user tries to remove an item that isn’t a part of their order, alert the user with an appropriate error message
+- [X]No matter what, the user should never see a traceback. Not even for a Keyboard Interrupt.
 - [ ]Every bit of functionality that you add should be tested.
 - [ ]As a general rule at this time, you should have a test for valid, invalid, and edge case variants for every function that you define. There are exceptions. The exceptions are not the rule.
 ## Version 1.3.0
@@ -69,6 +69,9 @@ snakes-cafe
 
 ### 2018-08-18
 - Handles errors for quantitys less than 1 and/or not a number.
+- Users can now add and remove items by quantity.
+- When items are added or removed the inventory is updated.
+- If there is not enough of an avialable item the user is notified.
 
 ### 2018-08-17
 - Modified README.md to reflect versioning.

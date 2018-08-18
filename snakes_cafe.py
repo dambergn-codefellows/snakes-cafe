@@ -19,7 +19,7 @@ def getMenue(file_path):
   try:
     with open(file_path, 'r') as rf:
       for line in rf:
-        new_line = line.replace('\n', ' ').split(',')
+        new_line = line.replace('\n', '').split(',')
         parsedCSV.append(new_line)
   except(FileNotFoundError, TypeError) as e:
     print('file not found')
@@ -87,8 +87,9 @@ def manual():
   ln_menue = 'Type "menue" to re-print the entire menue.'
   ln_category = 'Type "Category" to bring up a list of category options.'
   ln_category_2 = 'Type the name of the category to see the menue items in that category.'
-  ln_menue_item = 'Type the name of the menue item you would like to add to the order.'
-  ln_menue_item_2 = ' you can also select an ammount by typing numerical ammount after your order choice.'
+  ln_menue_item_add = 'Type the name of the menue item you would like to add to the order.'
+  ln_menue_item_ammount = ' you can also select an ammount by typing numerical ammount after your order choice.'
+  ln_menue_item_remove = 'Type "remove" "name of item" to remove an item from your order,'
   ln_order = 'type "order" to print current order to screen.'
   ln_load = 'If you would like to load a custom csv file type "load" "file_path"'
   ln_quit = 'At any time you can type "quit" or "exit" to stop the application.'
@@ -99,8 +100,10 @@ def manual():
     {ln_menue}
     {ln_category}
     {ln_category_2}
-    {ln_menue_item}
-    {ln_menue_item_2}
+    {ln_menue_item_add}
+    {ln_menue_item_ammount}
+    {ln_menue_item_remove}
+    {ln_menue_item_ammount}
     {ln_order}
     {ln_load}
     {ln_quit}
@@ -152,11 +155,14 @@ def add_menue_item(order, menue, quantity):
   """
   try:
     if int(quantity) < 1:
-      print('Please enter a number of 1 or greater')
-      # break
+      print('Please enter a number of 1 or greater.')
+    elif int(quantity) > menue['inventory']:
+      print('We do not currently have enough of that item is stock.')
+      print('Current stock: ' + str(menue['inventory']))
     else:
       price = "%.2f" % round(float(menue['price']),2)
       menue['order'] = menue['order'] + int(quantity)
+      menue['inventory'] = menue['inventory'] - int(menue['ammount'] * quantity)
       print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
       global TOTAL
       TOTAL = float(price) + TOTAL
@@ -165,16 +171,25 @@ def add_menue_item(order, menue, quantity):
     print('Please enter a number of 1 or greater')
 
 
-def remove_menue_item(order, menue):
+def remove_menue_item(order, menue, quantity):
   """Removes a selected item to the current order and iterates it in the dictonary.
   Prints out current total.
   """
-  price = "%.2f" % round(float(menue['price']),2)
-  menue['order'] = menue['order'] - 1
-  print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been removed from your meal.')
-  global TOTAL
-  TOTAL = TOTAL - float(price)
-  print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+  try:
+    if int(quantity) < 1:
+      print('Please enter a number of 1 or greater.')
+    elif int(menue['order']) == 0:
+      print('You do not currently have that item as part of your order.')
+    else:
+      price = "%.2f" % round(float(menue['price']),2)
+      menue['order'] = menue['order'] - int(quantity)
+      menue['inventory'] = menue['inventory'] + int(menue['ammount'] * quantity)
+      print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been removed from your meal.')
+      global TOTAL
+      TOTAL = TOTAL - float(price)
+      print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+  except ValueError:
+    print('Please enter a number of 1 or greater')
 
 
 def select_menue(order):
@@ -248,9 +263,14 @@ def run():
     if order.split(' ', 1)[0] == 'remove':
       order = order.split(' ', 1)[1]
       for menue in MENUE:
-        if order == menue['item']:
+        if (len(order.split()) > 1) and order.rsplit(' ', 1)[0] == menue['item']:
+          quantity = order.rsplit(' ', 1)[1]
+          order = order.rsplit(' ', 1)[0]
           VALID = True
-          remove_menue_item(order, menue)
+          remove_menue_item(order, menue, quantity)
+        elif order == menue['item']:
+            VALID = True
+            remove_menue_item(order, menue, 1)
     if order == 'order':
       VALID = True
       complete()
