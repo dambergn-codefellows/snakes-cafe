@@ -151,7 +151,7 @@ def add_menue_item(order, menue, quantity):
   Prints out current total.
   """
   price = "%.2f" % round(float(menue['price']),2)
-  menue['order'] = menue['order'] + quantity
+  menue['order'] = menue['order'] + int(quantity)
   print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
   global TOTAL
   TOTAL = float(price) + TOTAL
@@ -230,9 +230,9 @@ def run():
         break
     for menue in MENUE:
       if (len(order.split()) > 1) and order.rsplit(' ', 1)[0] == menue['item']:
-        quantity = int(order.rsplit(' ', 1)[1])
+        quantity = order.rsplit(' ', 1)[1]
         order = order.rsplit(' ', 1)[0]
-        print('multi: ' + order + 'q: ' + str(quantity))
+        # print('multi: ' + order + 'q: ' + quantity)
         VALID = True
         add_menue_item(order, menue, quantity)
       elif order == menue['item']:
