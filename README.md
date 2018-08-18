@@ -72,6 +72,7 @@ snakes-cafe
 - Users can now add and remove items by quantity.
 - When items are added or removed the inventory is updated.
 - If there is not enough of an avialable item the user is notified.
+- Fixed bug with current total when adding or removing items.
 
 ### 2018-08-17
 - Modified README.md to reflect versioning.

@@ -12,7 +12,7 @@ CATEGORIES = ['appetizers', 'entrees', 'sides', 'drinks', 'desserts']
 MENUE = []
 
 
-def getMenue(file_path):
+def get_menue(file_path):
   '''Parses data from csv file and builds menue dictonarry.
   '''
   parsedCSV = []
@@ -141,11 +141,12 @@ def complete():
   total_due = float(subtotal) + float(sales_tax)
   print(dedent(f'''
   {'*' * WIDTH}
-  {'Subtotal: ' + (' ' * (40 - (len(str(subtotal)) + 12))) + '$' + str("%.2f" % float(subtotal))}
-  {'Sales Tax: ' + (' ' * (40 - (len(str(sales_tax)) + 12))) + '$' + str("%.2f" % float(sales_tax))}
-  {'=' * 40}
-  {'Total Due: ' + (' ' * (40 - (len(str(total_due)) + 12))) + '$' + str("%.2f" % float(total_due))}
+  {'Subtotal:' + (' ' * (int(WIDTH / 2) - (len(str(subtotal)) + 11))) + '$' + str("%.2f" % float(subtotal))}
+  {'Sales Tax:' + (' ' * (int(WIDTH / 2)- (len(str(sales_tax)) + 12))) + '$' + str("%.2f" % float(sales_tax))}
+  {'=' * int(WIDTH / 2)}
+  {'Total Due:' + (' ' * (int(WIDTH / 2) - (len(str(total_due)) + 12))) + '$' + str("%.2f" % float(total_due))}
   {'_' * WIDTH}
+  {len(' ' * (int(WIDTH / 2) - (len(str(total_due)) + 11)))}
   '''))
 
 
@@ -165,7 +166,7 @@ def add_menue_item(order, menue, quantity):
       menue['inventory'] = menue['inventory'] - int(menue['ammount'] * quantity)
       print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
       global TOTAL
-      TOTAL = float(price) + TOTAL
+      TOTAL = (float(price) * int(quantity)) + TOTAL
       print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
   except ValueError:
     print('Please enter a number of 1 or greater')
@@ -186,7 +187,7 @@ def remove_menue_item(order, menue, quantity):
       menue['inventory'] = menue['inventory'] + int(menue['ammount'] * quantity)
       print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been removed from your meal.')
       global TOTAL
-      TOTAL = TOTAL - float(price)
+      TOTAL = TOTAL - (float(price) * int(quantity))
       print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
   except ValueError:
     print('Please enter a number of 1 or greater')
@@ -195,7 +196,7 @@ def remove_menue_item(order, menue, quantity):
 def select_menue(order):
   '''Selects which menue to use and prints it to the screen.
   '''
-  getMenue(order)
+  get_menue(order)
   print_menue()
 
 
@@ -208,7 +209,7 @@ def print_menue():
 
 def load_custom_menue(file_path):
   del MENUE[:]
-  getMenue(file_path)
+  get_menue(file_path)
   print_menue()
 
 
