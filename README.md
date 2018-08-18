@@ -1,8 +1,12 @@
 # snakes-cafe
 snakes-cafe
 
+# Version
+- Version 1.2.0
+
 # Use
-- when you start the program will will be greeted and a list of menue items will be presented.
+- when you start the program select which menu you want by typing "breakfast" or "dinner", Defaults to dinner.
+- to select a new menu type load then the path and file name.
 - at any time you can exit the application by typing "quit".
 - add a item from the menue to the meal order by typing its name.
 - if you need to see the list of a specific category type the category name and it will re-print on screen.
@@ -10,11 +14,13 @@ snakes-cafe
 - type man or help to bring up on screen instructions.
 
 # Features
+## Version 1.0.0
 - [X]When run, the program should print an intro message and the menu for the restaurant
 - [X]The restaurant’s menu should include appetizers, entrees, desserts, and beverages. At least 3 in each category
 - [X]The program should prompt the user for an order
 - [X]When a user enters an item, the program should print an acknowledgment of their input
 - [X]The program should tell the user how to exit
+## Version 1.1.0
 - [X]Your menu should get a “Sides” category
 - [X]Every menu category should have at least 6 items
 - [X]Your menu items should all get prices. Use whatever currency symbol you want, but make sure that the user knows what the prices and currencies are.
@@ -28,13 +34,13 @@ snakes-cafe
 - [X]If the user types remove <ITEM NAME>, 1 item of the type <ITEM NAME> should be removed from their order, and their order’s total should be printed to the screen
 - [X]All input should be case-insensitive
 - [ ]Keep your functions small, concise, and testable.
----NEW features---
+## Version 1.2.0
 - [ ]Every menu category should have at least 9 items
 - [X]Add to your snakes-cafe project the option to provide a separate file as a menu with the appropriate help text (see Lecture 01). If this option isn’t used, the menu you’ve been building all week will be used.
 - [X]The optional separate menu must be a comma-separated value (.csv) file, where each row includes the menu item’s name (str), category (str), price (float), and quantity (int) referring to the in-stock amount of that item.
 - [X]If the provided separate menu file isn’t a CSV file, alert the user with an appropriate error message. Note: the user should never see an actual Python Exception
-- [ ]When the user adds an item to their order, they should have the option of providing the quantity as well.
-- [ ]If they don’t provide the quantity, a quantity of 1 is assumed.
+- [X]When the user adds an item to their order, they should have the option of providing the quantity as well.
+- [X]If they don’t provide the quantity, a quantity of 1 is assumed.
 - [ ]If the quantity they provide is invalid (negative or not a number), alert the user with an appropriate error message
 - [ ]If the quantity they provide is beyond whatever is left in stock, alert the user with an appropriate error message.
 - [ ]If the user tries to add/remove an item that isn’t on whatever menu has been loaded, alert the user with an appropriate error message
@@ -42,7 +48,7 @@ snakes-cafe
 - [ ]No matter what, the user should never see a traceback. Not even for a Keyboard Interrupt.
 - [ ]Every bit of functionality that you add should be tested.
 - [ ]As a general rule at this time, you should have a test for valid, invalid, and edge case variants for every function that you define. There are exceptions. The exceptions are not the rule.
----NEW New features---
+## Version 1.3.0
 - [ ]Every menu category should have at least 12 items
 - [ ]Create an Order class. Whatever means you were using to build orders before, replace them with methods and attributes belonging to this class.
 - [ ]Every Order should have a uuid
@@ -61,10 +67,16 @@ snakes-cafe
 
 ## Change Log
 
+### 2018-08-17
+- Modified README.md to reflect versioning.
+- Removed duplicate assets folder.
+- Refactored manual.
+- Added ability for user to select an ammount to add to order.
+
 ### 2018-08-16
 - Updated all functions with descriptions.
 - Added KeyboardInterrupt to handle CTRL+C
-- Added quantity to dictionarry.
+- Added quantity to dictionary.
 - Changed quantity to inventory.
 - Changes to menue and menue.csv
 - Attempted some testing with no sucess.
