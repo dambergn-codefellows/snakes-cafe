@@ -150,12 +150,19 @@ def add_menue_item(order, menue, quantity):
   """Adds a selected item to the current order and iterates it in the dictonary.
   Prints out current total.
   """
-  price = "%.2f" % round(float(menue['price']),2)
-  menue['order'] = menue['order'] + int(quantity)
-  print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
-  global TOTAL
-  TOTAL = float(price) + TOTAL
-  print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+  try:
+    if int(quantity) < 1:
+      print('Please enter a number of 1 or greater')
+      # break
+    else:
+      price = "%.2f" % round(float(menue['price']),2)
+      menue['order'] = menue['order'] + int(quantity)
+      print(menue['order'], 'order(s) of', order, 'at $' + str(price) , ' have been added to your meal.')
+      global TOTAL
+      TOTAL = float(price) + TOTAL
+      print('Current Total W/O tax: $' + str("%.2f" % round(float(TOTAL),2)))
+  except ValueError:
+    print('Please enter a number of 1 or greater')
 
 
 def remove_menue_item(order, menue):

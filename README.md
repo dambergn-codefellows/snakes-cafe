@@ -41,7 +41,7 @@ snakes-cafe
 - [X]If the provided separate menu file isn’t a CSV file, alert the user with an appropriate error message. Note: the user should never see an actual Python Exception
 - [X]When the user adds an item to their order, they should have the option of providing the quantity as well.
 - [X]If they don’t provide the quantity, a quantity of 1 is assumed.
-- [ ]If the quantity they provide is invalid (negative or not a number), alert the user with an appropriate error message
+- [X]If the quantity they provide is invalid (negative or not a number), alert the user with an appropriate error message
 - [ ]If the quantity they provide is beyond whatever is left in stock, alert the user with an appropriate error message.
 - [ ]If the user tries to add/remove an item that isn’t on whatever menu has been loaded, alert the user with an appropriate error message
 - [ ]If the user tries to remove an item that isn’t a part of their order, alert the user with an appropriate error message
@@ -66,6 +66,9 @@ snakes-cafe
 - [ ]As a general rule at this time, you should have a test for valid, invalid, and edge case variants for every function that you define. There are exceptions. The exceptions are not the rule.
 
 ## Change Log
+
+### 2018-08-18
+- Handles errors for quantitys less than 1 and/or not a number.
 
 ### 2018-08-17
 - Modified README.md to reflect versioning.
